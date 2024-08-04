@@ -29,6 +29,10 @@ body {
     min-height: 100vh;
 }
 
+main {
+    background: #172408 url("https://res.cloudinary.com/dp1ehadna/image/upload/v1722795158/background_enhwgg.jpg") no-repeat center/cover fixed;
+}
+
 footer {
     background-color: #293B15;
     color: lightgrey;

@@ -29,10 +29,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DJANGO_DEBUG")
+# Set DEBUG to False unless Django finds True in env.py
 
-print(f"DJANGO_DEBUG: {os.environ.get('DJANGO_DEBUG')}")
-print(f"DEBUG: {DEBUG}")
+DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [ ".herokuapp.com", "8000-cyberarchit-matchmaster-zvt3uty4ugg.ws.codeinstitute-ide.net" ]
 

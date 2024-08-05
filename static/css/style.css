@@ -1,3 +1,20 @@
+
+/* All pages */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* Base.html styles */
+
+/* Navigation bar */
+
 nav {
     background-color: #293B15;
     color: lightgrey;
@@ -19,21 +36,52 @@ a.nav-link, a.navbar-brand {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-html, body {
-    height: 100%;
-}
-
-body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-}
+/* Main section */
 
 main {
     background: #172408 url("https://res.cloudinary.com/dp1ehadna/image/upload/v1722795158/background_enhwgg.jpg") no-repeat center/cover fixed;
 }
 
+/* Footer section */
+
 footer {
     background-color: #293B15;
     color: lightgrey;
+}
+
+/* Index.html styling */
+
+img {
+    width: 250px;
+}
+
+.index > h1, .index > h2, .index > p {
+    color: lightgrey;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.index > h1, .index > h2 {
+    background-color: #000000BB;
+    margin: 30px auto 0 auto;
+    padding: 40px;
+}
+
+.index > h1 {
+    font-size: 300%;
+    padding: 60px;
+    max-width: 600px;
+}
+
+.index > h2 {
+    font-size: 200%;
+    padding: 30px;
+    max-width: 400px;
+}
+
+.index > p {
+    margin: 60px auto 0 auto;
+    max-width: 150px;
+    background-color: red;
+    padding: 10px 20px 10px 20px;
 }

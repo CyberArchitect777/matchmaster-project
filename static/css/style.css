@@ -55,33 +55,66 @@ img {
     width: 250px;
 }
 
-.index > h1, .index > h2, .index > p {
+.index h1, .index h2, .index p {
     color: lightgrey;
     text-align: center;
     border-radius: 20px;
 }
 
-.index > h1, .index > h2 {
+.index h1, .index h2 {
     background-color: #000000BB;
     margin: 30px auto 0 auto;
     padding: 40px;
 }
 
-.index > h1 {
+.index h1 {
     font-size: 300%;
     padding: 60px;
     max-width: 600px;
 }
 
-.index > h2 {
+.index h2 {
     font-size: 200%;
     padding: 30px;
     max-width: 400px;
 }
 
-.index > p {
+.index p {
     margin: 60px auto 0 auto;
     max-width: 150px;
     background-color: red;
     padding: 10px 20px 10px 20px;
+}
+
+/* Login.html styling */
+
+#formholder {
+    background-color: #000000BB;
+    color: lightgrey;
+    max-width: 600px;
+    margin: 50px auto 50px;
+    padding-top: 24px;
+}
+
+#userform p {
+    display: flex;
+    justify-content: center;
+}
+
+#userform p label {
+    margin-right: 20px;
+}
+
+#id_password {
+    margin-left: 5px;
+}
+
+#formaction {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+#formaction a {
+    color: lightgrey;
 }

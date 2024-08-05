@@ -31,6 +31,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG")
 
+print(f"DJANGO_DEBUG: {os.environ.get('DJANGO_DEBUG')}")
+print(f"DEBUG: {DEBUG}")
+
 ALLOWED_HOSTS = [ ".herokuapp.com", "8000-cyberarchit-matchmaster-zvt3uty4ugg.ws.codeinstitute-ide.net" ]
 
 CSRF_TRUSTED_ORIGINS = [ 'https://*.codeinstitute-ide.net', 'https://*.herokuapp.com' ]

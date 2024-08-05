@@ -1,21 +1,25 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
+{% block main %}
 
-{% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<div class="index">
+    <h1>Match Master</h1>
+</div>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
-
-{% endblock content %}
+<div class="formholder">
+    <h1 class="text-center mb-4">Register</h1>
+    <p class="text-center mb-4">Please enter your username and password to log in.</p>
+    <form class="userform signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="formaction">
+            <button type="submit" class="mt-2 mb-4 p-1 px-4">{% trans "Register" %}</button>
+        </div>
+    </form>
+</div>
+{% endblock main %}

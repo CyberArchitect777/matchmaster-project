@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load account socialaccount %}
 
 {% block main %}
 
@@ -9,16 +8,16 @@
     <h1>Match Master</h1>
 </div>
 
-<div id="formholder">
+<div class="formholder">
     <h1 class="text-center mb-3">Login</h1>
     <p class="text-center">Please enter your username and password to log in.</p>
-    <form id="userform" class="login" method="POST" action="{% url 'account_login' %}">
+    <form class="userform" class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <div id="formaction">
+        <div class="formaction">
             <button class="primaryAction mb-3 p-2 px-4" type="submit">{% trans "Sign In" %}</button>
             <a class="d-block secondaryAction pb-4" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
         </div>

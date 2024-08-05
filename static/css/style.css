@@ -86,9 +86,10 @@ img {
     padding: 10px 20px 10px 20px;
 }
 
-/* Login.html styling */
+/* Login/register page styling */
 
-#formholder {
+
+.formholder {
     background-color: #000000BB;
     color: lightgrey;
     max-width: 600px;
@@ -96,25 +97,38 @@ img {
     padding-top: 24px;
 }
 
-#userform p {
+.userform p {
     display: flex;
     justify-content: center;
 }
 
-#userform p label {
+.userform p label {
     margin-right: 20px;
 }
+
+/* Login page styling */
 
 #id_password {
     margin-left: 5px;
 }
 
-#formaction {
+.formaction {
     margin: 0 auto;
     display: block;
     text-align: center;
 }
 
-#formaction a {
+.formaction a {
     color: lightgrey;
+}
+
+/* Register page styling */
+
+#id_username, #id_password1 {
+    margin-left: 40px;
+}
+
+#id_password1 {
+    margin-left: 42px;
+    margin-bottom: 20px;
 }

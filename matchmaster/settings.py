@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'index',
     'playerprofile',
+    'memorygame',
 ]
 
 SITE_ID = 1

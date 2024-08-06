@@ -3,9 +3,9 @@ from django.views.generic import TemplateView
 
 # Create your views here.
 
-class HomePage(TemplateView):
+class GamePage(TemplateView):
     """
-    Displays home page
+    Displays memory game page
     """
     
-    template_name = 'index/index.html'
+    template_name = 'memorygame/memorygame.html'

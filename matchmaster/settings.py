@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'index',
+    'playerprofile',
 ]
 
 SITE_ID = 1

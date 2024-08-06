@@ -4,18 +4,54 @@
 
 {% block main %}
 
-<div class="blackbox">
-    <h2>User Profile for -username-</h2>
+<div class="container">
+    <h2 class="blackbox">User Profile for -username-</h2>
     <div class="d-flex">
-        <p>New Game</p>
-        <p>Reset Game</p>
+        <p class="redbutton">New Game</p>
+        <p class="redbutton">Reset Game</p>
     </div>
-    <div>
-        <h3>Difficulty 1:</h3>
-        <p>Games completed: 0</p>
-        <p>Average rounds required to win: 0</p>
-        <p>Least rounds required to win: 0</p>
-        <p>Most rounds required to win: 0</p>
+    <div class="row">
+        <div class="pt-3 pb-2 col-12 blackbox">
+            <h3>Difficulty 1:</h3>
+            <p>Games completed: 0</p>
+            <p>Average rounds required to win: 0</p>
+            <p>Least rounds required to win: 0</p>
+            <p>Most rounds required to win: 0</p>
+        </div>
+        <div class="pt-3 pb-2 col-12 blackbox">
+            <h3>Difficulty 2:</h3>
+            <p>Games completed: 0</p>
+            <p>Average rounds required to win: 0</p>
+            <p>Least rounds required to win: 0</p>
+            <p>Most rounds required to win: 0</p>
+        </div>
+        <div class="pt-3 pb-2 col-12 blackbox">
+            <h3>Difficulty 3:</h3>
+            <p>Games completed: 0</p>
+            <p>Average rounds required to win: 0</p>
+            <p>Least rounds required to win: 0</p>
+            <p>Most rounds required to win: 0</p>
+        </div>
+        <div class="formholder container pb-4">
+            <form class="userform" method="POST" action="">
+                <div class="row mb-2">
+                    <label class="col-6 text-center" for="user-update-pass">Password</label>
+                    <input class="col-5" type="password" id="user-update-pass">
+                </div>
+                <div class="row my-2">
+                    <label class="col-6 text-center" for="user-update-newname">New Username</label>
+                    <input class="col-5" type="text" id="user-update-pass">
+                </div>
+                <div class="row my-2 mb-4">
+                    <label class="col-6 text-center" for="user-update-retypename">Retype New Username</label>
+                    <input class="col-5" type="text" id="user-update-pass">
+                </div>
+                <div class="row">
+                    <input type="submit" value="Update Username">
+                </div>
+            </form>
+        </div>
     </div>
+    
 
 {% endblock %}

@@ -13,25 +13,21 @@ body {
 
 /* General styling */
 
-.blackbox h1, .blackbox h2, .blackbox p {
+.blackbox {
     color: lightgrey;
     text-align: center;
     border-radius: 20px;
-}
-
-.blackbox h1, .blackbox h2 {
     background-color: #000000BB;
     margin: 30px auto 0 auto;
-    padding: 40px;
 }
 
-.blackbox h1 {
+h1.blackbox {
     font-size: 300%;
     padding: 60px;
     max-width: 600px;
 }
 
-.blackbox h2 {
+h2.blackbox {
     font-size: 200%;
     padding: 30px;
     max-width: 400px;
@@ -40,8 +36,10 @@ body {
 .redbutton {
     margin: 60px auto 0 auto;
     max-width: 150px;
+    color: lightgrey;
     background-color: red;
     padding: 10px 20px 10px 20px;
+    text-align: center;
 }
 
 .formholder {

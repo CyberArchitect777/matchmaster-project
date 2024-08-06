@@ -5,7 +5,7 @@
 {% block main %}
 
 <div class="container">
-    <h2 class="blackbox">User Profile for -username-</h2>
+    <h2 class="blackbox">User Profile for {{ request.user }}</h2>
     <div class="d-flex">
         <p class="redbutton">New Game</p>
         <p class="redbutton">Reset Game</p>
@@ -40,18 +40,56 @@
                 </div>
                 <div class="row my-2">
                     <label class="col-6 text-center" for="user-update-newname">New Username</label>
-                    <input class="col-5" type="text" id="user-update-pass">
+                    <input class="col-5" type="text" id="user-update-newname">
                 </div>
                 <div class="row my-2 mb-4">
                     <label class="col-6 text-center" for="user-update-retypename">Retype New Username</label>
-                    <input class="col-5" type="text" id="user-update-pass">
+                    <input class="col-5" type="text" id="user-update-retypename">
                 </div>
                 <div class="row">
                     <input type="submit" value="Update Username">
                 </div>
             </form>
         </div>
+        <div class="formholder container pb-4">
+            <form class="userform" method="POST" action="">
+                <div class="row mb-2">
+                    <label class="col-6 text-center" for="email-update-pass">Password</label>
+                    <input class="col-5" type="password" id="email-update-pass">
+                </div>
+                <div class="row my-2">
+                    <label class="col-6 text-center" for="email-update-newemail">New Email</label>
+                    <input class="col-5" type="text" id="email-update-newemail">
+                </div>
+                <div class="row my-2 mb-4">
+                    <label class="col-6 text-center" for="email-update-retypeemail">Retype New Email</label>
+                    <input class="col-5" type="text" id="email-update-retypeemail">
+                </div>
+                <div class="row">
+                    <input type="submit" value="Update Email Address">
+                </div>
+            </form>
+        </div>
+        <div class="formholder container pb-4 mb-5">
+            <form class="userform" method="POST" action="">
+                <div class="row mb-2">
+                    <label class="col-6 text-center" for="password-update-old">Old Password</label>
+                    <input class="col-5" type="password" id="password-update-old">
+                </div>
+                <div class="row my-2">
+                    <label class="col-6 text-center" for="password-update-new">New Password</label>
+                    <input class="col-5" type="password" id="password-update-new">
+                </div>
+                <div class="row my-2 mb-4">
+                    <label class="col-6 text-center" for="password-update-retypenew">Retype New Password</label>
+                    <input class="col-5" type="password" id="password-update-retypenew">
+                </div>
+                <div class="row">
+                    <input type="submit" value="Update Password">
+                </div>
+            </form>
+        </div>
     </div>
-    
+</div>   
 
 {% endblock %}

@@ -86,7 +86,18 @@ function handleInput(cardId) {
             memoryGameData.rounds++;
         }
         updateScore();
+        if (memoryGameData.matchesLeft == 0) {
+            endGame();
+        }
     }
+}
+
+function endGame() {
+    document.getElementById("round-number").innerText = memoryGameData.rounds;
+    document.getElementById("gamepanel-id").classList.add("hide");
+    document.getElementById("gamepanel-id").setAttribute("aria-hidden", "true")
+    document.getElementById("scorepanel-id").classList.remove("hide");
+    document.getElementById("scorepanel-id").setAttribute("aria-hidden", "false")
 }
 
 function preloadImages() {

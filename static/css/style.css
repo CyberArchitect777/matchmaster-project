@@ -132,3 +132,25 @@ img {
 
 /* Profile page styling */
 
+/* Game page styling */
+
+#gamepage {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%
+}
+
+#scoreboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #293B15;
+    color: lightgrey;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+#scoreboard p {
+    padding: 0 20px;
+    margin: 0;
+}

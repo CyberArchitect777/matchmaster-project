@@ -27,7 +27,7 @@ def player_profile_page(request):
 
     results = []
 
-    # for element in queryset:
+    #for element in queryset:
     
     template_name = 'playerprofile/profile.html'
 

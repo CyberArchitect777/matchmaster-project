@@ -187,6 +187,25 @@ function updateScore() {
     matchInfo.innerText = "Pair matches left: " + memoryGameData.matchesLeft;
 }
 
+function restartGame() {
+    (document.getElementById("restart-game-button")).disabled = true;
+    (document.getElementById("restart-game-button")).style.backgroundColor = "grey";
+    setTimeout(function() {
+        gameBoard.innerHTML = "";
+        memoryGameData.numberPlacement = [];
+        memoryGameData.picked = [];
+        memoryGameData.keyboardPosition = -1;
+        memoryGameData.rounds = 0;
+        memoryGameData.matchesLeft = 9;
+        preloadImages();
+        drawGameBoard();
+        generateRandomCardOrder();
+        updateScore();
+        (document.getElementById("restart-game-button")).disabled = false;
+        (document.getElementById("restart-game-button")).style.backgroundColor = "red";
+    }, 1000);
+}
+
 const memoryGameData = {
     totalBoxNumber: 18,
     numberPlacement: [],
@@ -212,6 +231,7 @@ const gameBoard = document.getElementById("gameboard");
 window.addEventListener("resize", resizeCards);
 window.addEventListener("keydown", handleKeyPlay);
 (document.getElementById("end-game-button")).addEventListener("click", endGameButtonPressed);
+(document.getElementById("restart-game-button")).addEventListener("click", restartGame);
 
 preloadImages();
 drawGameBoard();

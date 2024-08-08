@@ -37,10 +37,20 @@ h2.blackbox {
     margin: 60px auto 0 auto;
     max-width: 150px;
     color: lightgrey;
-    background-color: red;
+    background-color: darkred;
     padding: 10px 20px 10px 20px;
     text-align: center;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.redbutton a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.redbutton:hover {
+    background-color: red;
 }
 
 .formholder {
@@ -83,6 +93,20 @@ a.nav-link, a.navbar-brand {
   
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-brand:hover, .navbar-brand:focus, .navbar-brand:focus-visible {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.nav-link:hover, .nav-link:focus, .nav-link:focus-visible {
+    text-decoration: underline;
+    color: inherit;
+}
+
+.navbar-currentpage {
+    font-weight: bold;
 }
 
 /* Main section */

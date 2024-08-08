@@ -9,9 +9,13 @@ def player_profile_page(request):
     Displays the player profile page
     """
 
+    # If no GameType's exist in the database, add a default one.
+
     if GameType.objects.count() == 0:
         default_game_type_entry = GameType(boxes_in_game=18)
         default_game_type_entry.save()
+
+    # Add a completed game to the database if this is a POST request
 
     if request.method == "POST":
         game_type = GameType.objects.first()

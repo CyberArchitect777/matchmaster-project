@@ -216,4 +216,3 @@ window.addEventListener("keydown", handleKeyPlay);
 preloadImages();
 drawGameBoard();
 generateRandomCardOrder();
-endGame();

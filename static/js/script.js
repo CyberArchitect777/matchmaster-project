@@ -92,8 +92,55 @@ function handleInput(cardId) {
     }
 }
 
+function endGameButtonPressed() {
+
+    // Create hidden form with data to prepare to send data to Django
+
+    const hiddenForm = document.createElement("form");
+    hiddenForm.method = "POST";
+    hiddenForm.action = "/playerprofile/";
+    const gameTypeSetting = document.createElement("input");
+    gameTypeSetting.type = "hidden";
+    gameTypeSetting.name = "game-type-setting";
+    gameTypeSetting.value = 1; // This is the default 18 box game currently implemented.
+    hiddenForm.appendChild(gameTypeSetting);
+    const roundsTaken = document.createElement("input");
+    roundsTaken.type = "hidden";
+    roundsTaken.name = "rounds-taken";
+    roundsTaken.value = memoryGameData.rounds;
+    hiddenForm.appendChild(roundsTaken);
+
+    // Add csrftoken security for Django
+
+    const csrfToken = document.createElement("input");
+    csrfToken.type = "hidden";
+    csrfToken.name = "csrfmiddlewaretoken";
+    let csrfTokenValue = "";
+    const cookieCollection = document.cookie.split(";");
+    for (let x=0; x < cookieCollection.length; x++) {
+        const currentCookie = cookieCollection[x].trim();
+        if (currentCookie.startsWith("csrftoken=") == true) {
+            csrfTokenValue = decodeURIComponent(currentCookie.substring(10));
+            break;
+        }
+    }
+    csrfToken.value = csrfTokenValue;
+    hiddenForm.appendChild(csrfToken);
+    document.body.appendChild(hiddenForm);
+
+    // Submit hidden form with results to Django
+
+    hiddenForm.submit();
+}
+
 function endGame() {
+
+    // Update scoreboard on end game screen
+
     document.getElementById("round-number").innerText = memoryGameData.rounds;
+
+    // Hide the game screen and show the final score one
+
     document.getElementById("gamepanel-id").classList.add("hide");
     document.getElementById("gamepanel-id").setAttribute("aria-hidden", "true")
     document.getElementById("scorepanel-id").classList.remove("hide");
@@ -164,7 +211,9 @@ const memoryGameData = {
 const gameBoard = document.getElementById("gameboard");
 window.addEventListener("resize", resizeCards);
 window.addEventListener("keydown", handleKeyPlay);
+(document.getElementById("end-game-button")).addEventListener("click", endGameButtonPressed);
 
 preloadImages();
 drawGameBoard();
 generateRandomCardOrder();
+endGame();

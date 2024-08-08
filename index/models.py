@@ -9,7 +9,10 @@ class GameType(models.Model):
         but offers a tidier future solution for a game that could have future alternative game modes. 
         Related to :model:'index.Game'
     """
-    boxes_in_game = models.IntegerField(default=16) # Number of boxes in a specific game. 
+    boxes_in_game = models.IntegerField(default=16) # Number of boxes in a specific game.
+
+    def __str__(self):
+        return str(self.boxes_in_game) + " boxes in this game"
 
 class Message(models.Model):
     """

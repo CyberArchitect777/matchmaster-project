@@ -104,6 +104,11 @@ function endGameButtonPressed() {
     gameTypeSetting.name = "game-type-setting";
     gameTypeSetting.value = 1; // This is the default 18 box game currently implemented.
     hiddenForm.appendChild(gameTypeSetting);
+    const formId = document.createElement("input");
+    formId.type = "hidden"
+    formId.name = "form_id";
+    formId.value = "game_complete"; // Resorted to Django names for style merger
+    hiddenForm.appendChild(formId);
     const roundsTaken = document.createElement("input");
     roundsTaken.type = "hidden";
     roundsTaken.name = "rounds-taken";
@@ -236,3 +241,4 @@ window.addEventListener("keydown", handleKeyPlay);
 preloadImages();
 drawGameBoard();
 generateRandomCardOrder();
+endGame();

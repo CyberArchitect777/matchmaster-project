@@ -33,26 +33,17 @@
             <p>Most rounds required to win: 0</p>
         </div>
         <div class="formholder container pb-4">
-            <form class="userform" method="POST" action="">
-                <div class="row mb-2">
-                    <label class="col-6 text-center" for="user-update-pass">Password</label>
-                    <input class="col-5" type="password" id="user-update-pass">
-                </div>
-                <div class="row my-2">
-                    <label class="col-6 text-center" for="user-update-newname">New Username</label>
-                    <input class="col-5" type="text" id="user-update-newname">
-                </div>
-                <div class="row my-2 mb-4">
-                    <label class="col-6 text-center" for="user-update-retypename">Retype New Username</label>
-                    <input class="col-5" type="text" id="user-update-retypename">
-                </div>
-                <div class="row">
+            <form class="userform" method="POST" action="/playerprofile/">
+                {% csrf_token %}
+                {{ username_change_form.as_p }}
+                <div class="row pt-3">
                     <input type="submit" value="Update Username">
                 </div>
             </form>
         </div>
         <div class="formholder container pb-4">
             <form class="userform" method="POST" action="">
+                {% csrf_token %}
                 <div class="row mb-2">
                     <label class="col-6 text-center" for="email-update-pass">Password</label>
                     <input class="col-5" type="password" id="email-update-pass">

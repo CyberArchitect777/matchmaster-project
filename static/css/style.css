@@ -172,6 +172,14 @@ img {
 
 /* Profile page styling */
 
+#id_current_password {
+    margin-left: 35px;
+}
+
+#id_username_one {
+    margin-left: 52px;
+}
+
 /* Game page styling */
 
 #gamepage {

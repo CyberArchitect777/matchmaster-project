@@ -170,13 +170,27 @@ img {
     margin-bottom: 20px;
 }
 
+/* */
 /* Profile page styling */
+/* */ 
+
+/* Change username form */
 
 #id_current_password {
     margin-left: 35px;
 }
 
 #id_username_one {
+    margin-left: 52px;
+}
+
+/* Change email form */
+
+#id_current_account_password {
+    margin-left: 3px;
+}
+
+#id_email_one {
     margin-left: 52px;
 }
 

@@ -44,19 +44,8 @@
         <div class="formholder container pb-4">
             <form class="userform" method="POST" action="">
                 {% csrf_token %}
-                <div class="row mb-2">
-                    <label class="col-6 text-center" for="email-update-pass">Password</label>
-                    <input class="col-5" type="password" id="email-update-pass">
-                </div>
-                <div class="row my-2">
-                    <label class="col-6 text-center" for="email-update-newemail">New Email</label>
-                    <input class="col-5" type="text" id="email-update-newemail">
-                </div>
-                <div class="row my-2 mb-4">
-                    <label class="col-6 text-center" for="email-update-retypeemail">Retype New Email</label>
-                    <input class="col-5" type="text" id="email-update-retypeemail">
-                </div>
-                <div class="row">
+                {{ email_change_form.as_p }}
+                <div class="row pt-3">
                     <input type="submit" value="Update Email Address">
                 </div>
             </form>

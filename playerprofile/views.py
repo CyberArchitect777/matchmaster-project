@@ -1,7 +1,7 @@
 from django.shortcuts import render
 # from django.views.generic import TemplateView
 from index.models import Game, GameType
-from .forms import ChangeUsernameForm
+from .forms import ChangeUsernameForm, ChangeEmailForm
 
 # Create your views here.
 
@@ -35,8 +35,16 @@ def player_profile_page(request):
                 print("form is valid")
                 request.user.username = form.cleaned_data["username_one"]
                 request.user.save()
+        elif request.POST.get("form_id") == "email_change":
+            print("email_change form update detected")
+            form = ChangeEmailForm(request.POST, request=request)
+            if form.is_valid():
+                print("form is valid")
+                request.user.email = form.cleaned_data["email_one"]
+                request.user.save()
     
     username_change_form = ChangeUsernameForm(request=request)
+    email_change_form = ChangeEmailForm(request=request)
     
     # Construct statistics from the modal to display in the view
     
@@ -71,5 +79,6 @@ def player_profile_page(request):
             "results_least": results_least,
             "results_most": results_most,
             "username_change_form": username_change_form,
+            "email_change_form": email_change_form,
         }
     )

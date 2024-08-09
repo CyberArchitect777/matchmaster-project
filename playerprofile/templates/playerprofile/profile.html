@@ -51,6 +51,25 @@
                 </div>
             </form>
         </div>
+        <div class="formholder container pb-4">
+            <form class="userform" method="POST" action="">
+                <div class="row mb-2">
+                    <label class="col-6 text-center" for="email-update-pass">Password</label>
+                    <input class="col-5" type="password" id="email-update-pass">
+                </div>
+                <div class="row my-2">
+                    <label class="col-6 text-center" for="email-update-newemail">New Email</label>
+                    <input class="col-5" type="text" id="email-update-newemail">
+                </div>
+                <div class="row my-2 mb-4">
+                    <label class="col-6 text-center" for="email-update-retypeemail">Retype New Email</label>
+                    <input class="col-5" type="text" id="email-update-retypeemail">
+                </div>
+                <div class="row">
+                    <input type="submit" value="Update Email Address">
+                </div>
+            </form>
+        </div>
         <div class="d-flex flex-row align-content-center mb-4">
             <p class="redbutton"><a href="{% url 'account_change_password' %}">Change Password</a></p>
         </div>

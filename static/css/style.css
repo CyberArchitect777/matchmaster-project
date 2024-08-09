@@ -155,6 +155,21 @@ img {
     margin-bottom: 20px;
 }
 
+/* Change password page styling */
+
+#password-change-section ul {
+    text-align: start;
+}
+
+#id_oldpassword {
+    margin-left: 19px;
+}
+
+#id_password2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 /* Profile page styling */
 
 /* Game page styling */

@@ -1,5 +1,4 @@
 from django.shortcuts import render
-# from django.views.generic import TemplateView
 from index.models import Game, GameType
 from .forms import ChangeUsernameForm, ChangeEmailForm
 

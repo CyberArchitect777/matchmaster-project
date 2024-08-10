@@ -14,17 +14,9 @@ class GameType(models.Model):
     def __str__(self):
         return str(self.boxes_in_game) + " boxes in this game"
 
-class Message(models.Model):
-    """
-    Stores a admin message entry.
-    """
-    sender_name = models.CharField(max_length=300) # Set to the combined total of a standard first name + surname field length in the default User table
-    sender_email = models.CharField(max_length=254) # Matches field length in default User table
-    sender_message = models.TextField()
-
 class Game(models.Model):
     """
-        Stores a single game entry. Related to :model:'auth.User'
+        Stores a single game entry. Related to Django User model
     """
     game_player = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_games") # One to many relationship between users and games
     game_type_setting = models.ForeignKey(GameType, on_delete=models.CASCADE, related_name="game_types") # One to many relationship between games and game types

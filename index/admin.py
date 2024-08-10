@@ -1,9 +1,7 @@
 from django.contrib import admin
-from index.models import Game, GameType, Message
+from index.models import Game, GameType
 
 # Register your models here.
-
-admin.site.register(Message)
 
 @admin.register(Game)
 class GameAdmin(admin.ModelAdmin):

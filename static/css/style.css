@@ -1,5 +1,7 @@
 
+/* */
 /* All pages */
+/* */
 
 html, body {
     height: 100%;
@@ -11,7 +13,9 @@ body {
     min-height: 100vh;
 }
 
+/* */
 /* General styling */
+/* */
 
 .blackbox {
     color: lightgrey;
@@ -70,7 +74,9 @@ h2.blackbox {
     margin-right: 20px;
 }
 
+/* */
 /* Base.html styles */
+/* */
 
 /* Navigation bar */
 
@@ -122,13 +128,17 @@ footer {
     color: lightgrey;
 }
 
+/* */
 /* Index.html styling */
+/* */
 
 img {
     width: 250px;
 }
 
+/* */
 /* Login page styling */
+/* */
 
 #id_password {
     margin-left: 5px;
@@ -144,7 +154,9 @@ img {
     color: lightgrey;
 }
 
+/* */
 /* Register page styling */
+/* */
 
 #id_username, #id_password1 {
     margin-left: 40px;
@@ -155,7 +167,9 @@ img {
     margin-bottom: 20px;
 }
 
+/* */
 /* Change password page styling */
+/* */
 
 #password-change-section ul {
     text-align: start;
@@ -194,7 +208,9 @@ img {
     margin-left: 52px;
 }
 
+/* */
 /* Game page styling */
+/* */
 
 #gamepage {
     height: 100%;

@@ -57,6 +57,19 @@ h2.blackbox {
     background-color: red;
 }
 
+.small-button {
+    background-color: darkred;
+    color: white;
+    margin: 5px;
+    width: 80px;
+    padding: 5px 0;
+    border-radius: 20px;
+}
+
+.small-button:hover {
+    background-color: red;
+}
+
 .formholder {
     background-color: #000000BB;
     color: lightgrey;
@@ -264,6 +277,8 @@ img {
 .accordion-button { /* Styling inactive menu header */
     background-color: #00000040;
     color: lightgrey;
+    display: block;
+    text-align: center;
 }
 
 .accordion-button:not(.collapsed) { /* Styling active menu header */

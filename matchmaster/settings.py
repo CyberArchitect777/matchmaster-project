@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'index',
     'playerprofile',
     'memorygame',
+    'instruction'
 ]
 
 SITE_ID = 1

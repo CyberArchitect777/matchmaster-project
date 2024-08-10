@@ -38,14 +38,14 @@
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                                <a class="nav-link {% if request.path == '/accounts/login/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'account_login' %}">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                                <a class="nav-link {% if request.path == '/accounts/signup/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'account_signup' %}">Register</a>
                             </li>
                         {% endif %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Instructions</a>
+                            <a class="nav-link {% if request.path == '/instruction/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'instruction' %}">Instructions</a>
                         </li>
                     </ul>
                 </div>

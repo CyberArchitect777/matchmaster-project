@@ -251,3 +251,22 @@ img {
 .hide {
     display: none;
 }
+
+/* */
+/* Instruction page styling */
+/* */
+
+.accordion-item { /* Styling entry */
+    background-color: #00000040;
+    color: lightgrey;
+}
+
+.accordion-button { /* Styling inactive menu header */
+    background-color: #00000040;
+    color: lightgrey;
+}
+
+.accordion-button:not(.collapsed) { /* Styling active menu header */
+    background-color: #00000040;
+    color: lightgrey;
+}

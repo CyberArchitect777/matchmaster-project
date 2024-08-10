@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
 
 # Create your views here.
 
-class InstructionPage(TemplateView):
+def display_instruction_page(request):
     """
-    Displays instruction page
+    Displays the instruction page
     """
     
-    template_name = 'instruction/instruction.html'
+    return render(
+	    request,
+        "instruction/instruction.html", {
+        }
+    )

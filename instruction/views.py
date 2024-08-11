@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Information
 from .forms import ManipulateInformation
 
@@ -46,6 +46,7 @@ def display_instruction_page(request):
                 information_object = information_form.save(commit=False)
                 information_object.update_author = request.user
                 information_object.save()
+        return redirect("instruction")
     else:
         information_form = ManipulateInformation()
 

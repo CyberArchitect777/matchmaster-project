@@ -6,7 +6,7 @@ from .forms import ManipulateInformation
 
 def delete_instruction(request, delete_id):
     """
-    Deletes an instruction element
+    Delete an instruction element
     """
 
     instruction = Information.objects.filter(id=delete_id)

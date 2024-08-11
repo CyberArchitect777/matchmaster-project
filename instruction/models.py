@@ -17,7 +17,7 @@ class Information(models.Model):
     title = models.CharField(max_length=200, blank=False, null=False, unique=True)
     content = models.TextField(blank=False, null=False)
     updated_on = models.DateTimeField(auto_now=True) # Date and time the entry was last updated
-    active = models.IntegerField(choices=ACTIVE_DISPLAY, default=0) # If the entry should be displayed or not.
+    active = models.IntegerField(choices=ACTIVE_DISPLAY, default=1) # If the entry should be displayed or not.
 
     def __str__(self):
         return str(self.title)

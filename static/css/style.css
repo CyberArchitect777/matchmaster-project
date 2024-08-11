@@ -13,6 +13,25 @@ body {
     min-height: 100vh;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.modal-content {
+    background-color: #293B15BB;
+    color: white;
+}
+
+button.btn {
+    border-radius: 20px;
+    width: 75px;
+}
+
+button.btn.btn-secondary {
+    border-radius: 20px;
+}
+
 /* */
 /* General styling */
 /* */
@@ -65,9 +84,6 @@ h2.blackbox {
     padding: 5px 0;
     border-radius: 20px;
     cursor: pointer;
-}
-
-.small-button a {
     text-decoration: none;
     color: inherit;
 }

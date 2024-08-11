@@ -7,7 +7,7 @@
 <div class="container">
     <h2 class="blackbox">User Profile for {{ request.user }}</h2>
     <div class="d-flex">
-        <p class="redbutton">New Game</p>
+        <p class="redbutton"><a href="{% url 'memorygame' %}">New Game</a></p>
         <p class="redbutton">Reset Game</p>
     </div>
     <div class="row">

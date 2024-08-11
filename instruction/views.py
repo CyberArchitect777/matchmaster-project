@@ -39,6 +39,7 @@ def display_instruction_page(request):
                 information_object.save()
         elif request.POST.get("form_id") == "edit_information":
             print("Edit Information")
+            print(request.POST)
             information_form = ManipulateInformation(request.POST, instance=Information.objects.get(id=request.POST.get("element_id")))
             if information_form.is_valid():
                 information_form.cleaned_data.pop('form_id', None)

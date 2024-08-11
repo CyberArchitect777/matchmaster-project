@@ -66,6 +66,11 @@ h2.blackbox {
     border-radius: 20px;
 }
 
+.small-button a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .small-button:hover {
     background-color: red;
 }

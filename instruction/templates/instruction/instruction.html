@@ -25,7 +25,7 @@
                     <div class="d-flex align-items-center mt-5">
                         {% if user.is_superuser %} <p id="editbutton{{ list_item.id }}" class="small-button edit-button fs-6 me-auto">Edit</p> {% endif %}
                         <p class="fst-italic fs-6 {% if user.is_superuser %}mx-3 {% else %} mx-auto {% endif %}">Updated on: {{ list_item.updated_on }}</p>
-                        {% if user.is_superuser %} <p id="deletebutton{{ list_item.id }}" class="small-button fs-6 ms-auto">Delete</p> {% endif %}
+                        {% if user.is_superuser %} <p id="deletebutton{{ list_item.id }}" class="small-button fs-6 ms-auto"><a href="{% url 'delete_instruction' delete_id=list_item.id %}">Delete</a></p> {% endif %}
                     </div>
                 </div>
             </div>

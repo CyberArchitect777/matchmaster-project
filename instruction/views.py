@@ -4,6 +4,24 @@ from .forms import ManipulateInformation
 
 # Create your views here.
 
+def delete_instruction(request, delete_id):
+    """
+    Deletes an instruction element
+    """
+
+    instruction = Information.objects.filter(id=delete_id)
+    instruction.delete()
+    information_form = ManipulateInformation()
+    information_list = Information.objects.filter(active=1)
+
+    return render(
+	    request,
+        "instruction/instruction.html", {
+            "information_list": information_list,
+            "information_form": information_form,
+        }
+    )
+
 def display_instruction_page(request):
     """
     Displays the instruction page

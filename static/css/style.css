@@ -64,6 +64,7 @@ h2.blackbox {
     width: 80px;
     padding: 5px 0;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .small-button a {

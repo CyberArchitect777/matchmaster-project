@@ -51,8 +51,6 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <main>
         <div class="greenbox pb-1">
             {% if user.is_authenticated %}
                 Signed in as {{ user.username }}
@@ -60,6 +58,13 @@
                 Not logged in
             {% endif %}
         </div>
+    </header>
+    <main>
+        {% for message in messages %}
+            <div id="message-style" class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                {{ message | safe }}
+            </div>
+        {% endfor %}
         {% block main %}
             <!-- Non-template content goes here -->
         {% endblock main %}

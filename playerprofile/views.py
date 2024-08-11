@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from index.models import Game, GameType
 from .forms import ChangeUsernameForm, ChangeEmailForm
 
@@ -11,6 +12,9 @@ def delete_game_history(request):
 
     current_player_games = Game.objects.filter(game_player=request.user)
     current_player_games.delete()
+    messages.add_message(request, messages.SUCCESS,
+ 	'User game history deleted')
+
     return redirect("playerprofile")
 
 def player_profile_page(request):
@@ -36,6 +40,8 @@ def player_profile_page(request):
             rounds_taken = request.POST.get("rounds-taken")
             game_entry = Game(game_player=request.user, game_type_setting=game_type, rounds_to_complete=rounds_taken)
             game_entry.save()
+            messages.add_message(request, messages.SUCCESS,
+ 	            'New game record added')
         elif request.POST.get("form_id") == "username_change":
             print("username_change form update detected")
             form = ChangeUsernameForm(request.POST, request=request)
@@ -43,6 +49,8 @@ def player_profile_page(request):
                 print("form is valid")
                 request.user.username = form.cleaned_data["username_one"]
                 request.user.save()
+                messages.add_message(request, messages.SUCCESS,
+ 	            'Username updated')
         elif request.POST.get("form_id") == "email_change":
             print("email_change form update detected")
             form = ChangeEmailForm(request.POST, request=request)
@@ -50,6 +58,8 @@ def player_profile_page(request):
                 print("form is valid")
                 request.user.email = form.cleaned_data["email_one"]
                 request.user.save()
+                messages.add_message(request, messages.SUCCESS,
+ 	            'Email updated')
     
     username_change_form = ChangeUsernameForm(request=request)
     email_change_form = ChangeEmailForm(request=request)

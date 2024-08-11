@@ -9,6 +9,8 @@ def contact_admin(request):
         contact_admin_form = MessageAdmin(request.POST)
         if contact_admin_form.is_valid():
             contact_admin_form.save()
+            messages.add_message(request, messages.SUCCESS,
+ 	            'Message created on admin messages model')
     return redirect("instruction")
 
 def delete_instruction(request, delete_id):
@@ -18,6 +20,8 @@ def delete_instruction(request, delete_id):
 
     instruction = Information.objects.filter(id=delete_id)
     instruction.delete()
+    messages.add_message(request, messages.SUCCESS,
+ 	            'Instruction element deleted')
     information_form = ManipulateInformation()
     information_list = Information.objects.filter(active=1)
 
@@ -44,6 +48,8 @@ def display_instruction_page(request):
                 information_object = information_form.save(commit=False)
                 information_object.update_author = request.user
                 information_object.save()
+                messages.add_message(request, messages.SUCCESS,
+ 	            'Instruction element created')
         elif request.POST.get("form_id") == "edit_information":
             print("Edit Information")
             print(request.POST)
@@ -54,6 +60,8 @@ def display_instruction_page(request):
                 information_object = information_form.save(commit=False)
                 information_object.update_author = request.user
                 information_object.save()
+                messages.add_message(request, messages.SUCCESS,
+ 	            'Instruction element updated')
         return redirect("instruction")
     else:
         information_form = ManipulateInformation()

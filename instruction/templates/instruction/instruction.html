@@ -61,11 +61,32 @@
                 </div>
             </div>
         {% endfor %}
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse-message-admin" aria-expanded="false"
+                    aria-controls="collapse-message-admin">
+                    Message Site Admin
+                </button>
+            </h2>
+            <div id="collapse-message-admin" class="accordion-collapse collapse"
+                data-bs-parent="#accordionDisplay">
+                <div class="accordion-body">
+                    <p class="mt-4">Please feel free to contact admin for any feedback or issues involved in using this website</p>
+                    {% load crispy_forms_tags %}
+                    <form class="crispy-form mb-4" method="POST" action="{% url 'contact_admin' %}">
+                        {% csrf_token %}
+                        {{ message_admin_form|crispy }}
+                        <button type="submit" id="message-submit" class="btn btn-light">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     {% if user.is_superuser %}
         <h3>Create a new information section</h3>
         {% load crispy_forms_tags %}
-        <form class="information-form" method="POST">
+        <form class="crispy-form" method="POST">
             <input type="hidden" id="form_id" name="form_id" value="add_instruction">
             <input type="hidden" id="element_id" name="element_id" value="">
             {% csrf_token %}

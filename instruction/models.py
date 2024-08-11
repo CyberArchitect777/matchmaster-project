@@ -27,6 +27,6 @@ class Message(models.Model):
         Stores messages sent by the user to admin. All fields are required
     """
     sender_name = models.CharField(max_length=300, blank=False, null=False)
-    sender_email = models.CharField(max_length=254, blank=False, null=False)
+    sender_email = models.EmailField(blank=False, null=False)
     sender_title = models.CharField(max_length=200, blank=False, null=False)
     sender_message = models.TextField(blank=False, null=False)

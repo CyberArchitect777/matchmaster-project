@@ -1,8 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import Information
-from .forms import ManipulateInformation
+from .forms import ManipulateInformation, MessageAdmin
 
 # Create your views here.
+
+def contact_admin(request):
+    if request.method == "POST":
+        contact_admin_form = MessageAdmin(request.POST)
+        if contact_admin_form.is_valid():
+            contact_admin_form.save()
+    return redirect("instruction")
 
 def delete_instruction(request, delete_id):
     """
@@ -50,6 +57,7 @@ def display_instruction_page(request):
         return redirect("instruction")
     else:
         information_form = ManipulateInformation()
+        message_admin_form = MessageAdmin()
 
     information_list = Information.objects.filter(active=1)
     
@@ -58,5 +66,6 @@ def display_instruction_page(request):
         "instruction/instruction.html", {
             "information_list": information_list,
             "information_form": information_form,
+            "message_admin_form": message_admin_form,
         }
     )

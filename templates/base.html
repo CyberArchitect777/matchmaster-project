@@ -31,7 +31,7 @@
                     <ul class="ms-auto navbar-nav mb-2 mb-lg-0">
                         {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == '/playerprofile/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'playerprofile' %}">{{ user.username }}'s Profile</a>
+                                <a class="nav-link {% if request.path == '/playerprofile/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'playerprofile' %}">Profile</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {% if request.path == '/accounts/logout/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'account_logout' %}">Logout</a>
@@ -53,6 +53,13 @@
         </nav>
     </header>
     <main>
+        <div class="greenbox pb-1">
+            {% if user.is_authenticated %}
+                Signed in as {{ user.username }}
+            {% else %}
+                Not logged in
+            {% endif %}
+        </div>
         {% block main %}
             <!-- Non-template content goes here -->
         {% endblock main %}

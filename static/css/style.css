@@ -44,6 +44,12 @@ button.btn.btn-secondary {
     margin: 30px auto 0 auto;
 }
 
+.greenbox {
+    background-color: #293B15;
+    text-align: center;
+    color: lightgrey;
+}
+
 h1.blackbox {
     font-size: 300%;
     padding: 60px;

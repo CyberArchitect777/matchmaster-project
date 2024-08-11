@@ -11,4 +11,5 @@ class InformationAdmin(admin.ModelAdmin):
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ("sender_title", )
+    list_display = ("sender_title", "sender_name", "sent_on", )
+    ordering = ['-sent_on']

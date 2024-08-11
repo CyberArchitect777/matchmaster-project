@@ -30,4 +30,4 @@ class Message(models.Model):
     sender_email = models.EmailField(blank=False, null=False)
     sender_title = models.CharField(max_length=200, blank=False, null=False)
     sender_message = models.TextField(blank=False, null=False)
-    sent_on = models.DateTimeField(auto_now=True) # Date and time the entry was last updated
+    sent_on = models.DateTimeField(auto_now=True) # Date and time the message was sent

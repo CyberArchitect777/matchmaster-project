@@ -16,7 +16,7 @@ function fillCommentForEdit(event) {
     const formId = document.getElementById("form_id");
     formId.value = "edit_information" // Using python naming convention here
     const formButton = document.getElementById("information-submit");
-    formButton.innerText = "Edit";
+    formButton.innerText = "Update";
     const informationId = document.getElementById("element_id");
     informationId.value = numberSelected;
 }

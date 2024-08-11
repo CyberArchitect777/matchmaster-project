@@ -10,7 +10,7 @@
 
 <div class="formholder">
     <h1 class="text-center mb-4">Register</h1>
-    <p class="text-center mb-4">Please enter your username and password to log in.</p>
+    <p class="text-center mb-4">Please enter your details to register. An email address is not required, but would be needed for password recovery at a later date.</p>
     <form class="userform signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form.as_p }}

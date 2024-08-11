@@ -11,9 +11,9 @@
     <h1 class="blackbox">Match Master</h1>
     <h2 class="blackbox">A Pair Matching Game Designed To Test Memory</h2>
     {% if user.is_authenticated %}
-        <p class="redbutton"><a href="{% url 'memorygame' %}">Start Game</a></p>
+        <a href="{% url 'memorygame' %}"><p class="redbutton mb-4">Start Game</p></a>
     {% else %}
-        <p class="redbutton"><a href="{% url 'account_login' %}">Start Game</a></p>
+        <a href="{% url 'account_login' %}"><p class="redbutton mb-4">Start Game</p></a>
     {% endif %}
 </div>
 

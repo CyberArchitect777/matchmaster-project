@@ -285,3 +285,9 @@ img {
     background-color: #00000040;
     color: lightgrey;
 }
+
+.information-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 30px;
+}

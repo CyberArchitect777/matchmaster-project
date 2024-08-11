@@ -14,24 +14,41 @@
         {% for list_item in information_list %}
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    {{ list_item.title }}
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ list_item.id }}"
+                    aria-expanded="true" aria-controls="collapse{{ list_item.id }}">
+                    <div id="infotitle{{ list_item.id }}">{{ list_item.title }}</div>
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionDisplay">
+            <div id="collapse{{ list_item.id }}" class="accordion-collapse collapse show" data-bs-parent="#accordionDisplay">
                 <div class="accordion-body">
-                    <p>{{ list_item.content }}</p>
+                    <p id="infocontent{{ list_item.id }}">{{ list_item.content }}</p>
                     <div class="d-flex align-items-center mt-5">
-                        {% if user.is_superuser %} <p class="small-button fs-6 me-auto">Edit</p> {% endif %}
+                        {% if user.is_superuser %} <p id="editbutton{{ list_item.id }}" class="small-button edit-button fs-6 me-auto">Edit</p> {% endif %}
                         <p class="fst-italic fs-6 {% if user.is_superuser %}mx-3 {% else %} mx-auto {% endif %}">Updated on: {{ list_item.updated_on }}</p>
-                        {% if user.is_superuser %} <p class="small-button fs-6 ms-auto">Delete</p> {% endif %}
+                        {% if user.is_superuser %} <p id="deletebutton{{ list_item.id }}" class="small-button fs-6 ms-auto">Delete</p> {% endif %}
                     </div>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+    {% if user.is_superuser %}
+        <h3>Create a new information section</h3>
+        {% load crispy_forms_tags %}
+        <form class="information-form" method="POST">
+            <input type="hidden" id="form_id" name="form_id" value="add_instruction">
+            <input type="hidden" id="element_id" name="element_id" value="">
+            {% csrf_token %}
+            {{ information_form|crispy }}
+            <button type="submit" id="information-submit" class="btn btn-light">Add</button>
+        </form>
+    {% endif %}
 </div>
+
+{% endblock %}
+
+{% block gamescript %}
+
+<script src="{% static 'js/instruction.js' %}"></script>
 
 {% endblock %}

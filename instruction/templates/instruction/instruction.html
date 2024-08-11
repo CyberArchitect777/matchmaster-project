@@ -27,10 +27,9 @@
                         <div class="d-flex align-items-center mt-5">
                             {% if user.is_superuser %} 
                                 <p id="editbutton{{ list_item.id }}"
-                                    class="small-button edit-button fs-6 me-auto">Edit</p> 
+                                    class="small-button edit-button fs-6">Edit</p> 
                             {% endif %}
-                                <p class="fst-italic fs-6 {% if user.is_superuser %}mx-3 {% else %} mx-auto {% endif %}">Updated
-                                    on: {{ list_item.updated_on }}</p>
+                                <p class="fst-italic fs-6 mx-auto">Updated on: {{ list_item.updated_on }}</p>
                             {% if user.is_superuser %} 
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#delete-modal{{ list_item.id }}"><p id="deletebutton{{ list_item.id }}" class="small-button fs-6 ms-auto">Delete</p></a>
                             {% endif %}

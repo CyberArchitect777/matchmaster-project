@@ -1,8 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from index.models import Game, GameType
 from .forms import ChangeUsernameForm, ChangeEmailForm
 
 # Create your views here.
+
+def delete_game_history(request):
+    """
+    Fully delete the player's game history
+    """
+
+    current_player_games = Game.objects.filter(game_player=request.user)
+    current_player_games.delete()
+    return redirect("playerprofile")
 
 def player_profile_page(request):
     """

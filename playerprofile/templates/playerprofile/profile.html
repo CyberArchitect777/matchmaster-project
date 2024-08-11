@@ -4,11 +4,32 @@
 
 {% block main %}
 
+<div class="modal" id="delete-game-history" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Game History</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Are you sure you want to delete your game history?</p>
+            </div>
+            <div class="modal-footer">
+                <form class="mx-auto" action="{% url 'delete_game_history' %}" method="POST">
+                    {% csrf_token %}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn small-button">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <h2 class="blackbox">User Profile for {{ request.user }}</h2>
-    <div class="d-flex">
-        <p class="redbutton"><a href="{% url 'memorygame' %}">New Game</a></p>
-        <p class="redbutton">Reset Game</p>
+    <div class="row">
+        <p class="col-6 redbutton"><a href="{% url 'memorygame' %}">New Game</a></p>
+        <a class="col-6 d-block" href="#" data-bs-toggle="modal" data-bs-target="#delete-game-history"><p class="redbutton">Reset Game</p></a>
     </div>
     <div class="row">
         <div class="pt-3 pb-2 col-12 blackbox">

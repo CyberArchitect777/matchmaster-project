@@ -84,15 +84,17 @@
         </div>
     </div>
     {% if user.is_superuser %}
-        <h3>Create a new information section</h3>
-        {% load crispy_forms_tags %}
-        <form class="crispy-form" method="POST">
-            <input type="hidden" id="form_id" name="form_id" value="add_instruction">
-            <input type="hidden" id="element_id" name="element_id" value="">
-            {% csrf_token %}
-            {{ information_form|crispy }}
-            <button type="submit" id="information-submit" class="btn btn-light">Add</button>
-        </form>
+        <div class="admin-add">
+            <h3>Create/edit a new information section (admin only)</h3>
+            {% load crispy_forms_tags %}
+            <form class="crispy-form" method="POST">
+                <input type="hidden" id="form_id" name="form_id" value="add_instruction">
+                <input type="hidden" id="element_id" name="element_id" value="">
+                {% csrf_token %}
+                {{ information_form|crispy }}
+                <button type="submit" id="information-submit" class="btn btn-light">Add</button>
+            </form>
+        </div>
     {% endif %}
 </div>
 

@@ -7,9 +7,10 @@ from instruction.models import Information, Message
 
 @admin.register(Information)
 class InformationAdmin(admin.ModelAdmin):
-    list_display = ("title", )
+    list_display = ("title", "active", "priority" )
+    ordering = [ "priority" ]
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
     list_display = ("sender_title", "sender_name", "sent_on", )
-    ordering = ['-sent_on']
+    ordering = [ "-sent_on" ]

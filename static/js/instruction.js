@@ -10,9 +10,10 @@ function fillCommentForEdit(event) {
     const title = document.getElementById("id_title");
     const content = document.getElementById("id_content");
     let active = document.getElementById("id_active");
+    let priority = document.getElementById("id_priority")
     title.value = document.getElementById("infotitle" + numberSelected).innerText;
     content.value = document.getElementById("infocontent" + numberSelected).innerText;
-    active.value = 1;
+    priority.value = (document.getElementById("prioritydisplay" + numberSelected).innerText).substring(10);
     const formId = document.getElementById("form_id");
     formId.value = "edit_information" // Using python naming convention here
     const formButton = document.getElementById("information-submit");

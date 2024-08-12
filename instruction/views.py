@@ -68,7 +68,7 @@ def display_instruction_page(request):
         information_form = ManipulateInformation()
         message_admin_form = MessageAdmin()
 
-    information_list = Information.objects.filter(active=1)
+    information_list = Information.objects.filter(active=1).order_by('priority')
     
     return render(
 	    request,

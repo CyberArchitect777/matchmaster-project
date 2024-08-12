@@ -28,6 +28,7 @@
                             {% if user.is_superuser %} 
                                 <p id="editbutton{{ list_item.id }}"
                                     class="small-button edit-button fs-6">Edit</p> 
+                                <p class="fst-italic fs-6 mx-auto" id="prioritydisplay{{ list_item.id }}">Priority: {{ list_item.priority }}</p>
                             {% endif %}
                                 <p class="fst-italic fs-6 mx-auto">Updated on: {{ list_item.updated_on }}</p>
                             {% if user.is_superuser %} 

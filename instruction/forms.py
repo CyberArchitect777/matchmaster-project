@@ -6,7 +6,7 @@ from .models import Information, Message
 class ManipulateInformation(forms.ModelForm):
     class Meta:
         model = Information
-        fields = ["title", "active", "content"]
+        fields = ["title", "active", "content", "priority"]
 
 class MessageAdmin(forms.ModelForm):
     class Meta:

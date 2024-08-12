@@ -18,6 +18,7 @@ class Information(models.Model):
     content = models.TextField(blank=False, null=False)
     updated_on = models.DateTimeField(auto_now=True) # Date and time the entry was last updated
     active = models.IntegerField(choices=ACTIVE_DISPLAY, default=1) # If the entry should be displayed or not.
+    priority = models.IntegerField(default=1, blank=False, null=False, verbose_name="Priority Display Order") # Allows the ordering of elements by assigning a priority.
 
     def __str__(self):
         return str(self.title)

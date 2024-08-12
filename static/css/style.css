@@ -32,6 +32,10 @@ button.btn.btn-secondary {
     border-radius: 20px;
 }
 
+main {
+    margin-top: 84px;
+}
+
 /*#message-style {
     background-color: green;
 }*/

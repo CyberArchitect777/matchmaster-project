@@ -207,12 +207,11 @@ img {
 /* Register page styling */
 /* */
 
-#id_username, #id_password1 {
-    margin-left: 40px;
+.userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
+    margin-left: auto;
 }
 
-#id_password1 {
-    margin-left: 42px;
+.userform #id_password1 {
     margin-bottom: 20px;
 }
 
@@ -220,17 +219,23 @@ img {
 /* Change password page styling */
 /* */
 
+#password-change-section {
+    max-width: 600px;
+}
+
 #password-change-section ul {
     text-align: start;
+    margin: 30px 0;
 }
 
-#id_oldpassword {
-    margin-left: 19px;
+#password-change-section label {
+    text-align: center;
 }
 
-#id_password2 {
-    margin-top: 20px;
-    margin-bottom: 20px;
+#password-change-section input {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* */
@@ -250,11 +255,15 @@ img {
 /* Change email form */
 
 #id_current_account_password {
-    margin-left: 3px;
+    margin-left: 33px;
 }
 
 #id_email_one {
-    margin-left: 52px;
+    margin-left: 82px;
+}
+
+#id_email_two {
+    margin-left: 30px;
 }
 
 /* */
@@ -328,19 +337,70 @@ img {
     padding: 0 30px;
 }
 
-.admin-add {
+.admin-change {
+    margin: 0 auto;
     border: 2px solid white;
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
+    max-width: 496px;
 }
 
 /* */
 /* Media queries */
 /* */
 
+@media only screen and (min-width: 376px) {
 
+    .userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
+        margin-right: 10px;
+    }
+
+    .userform p label {
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (min-width: 460px) {
+
+    .userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
+        margin-right: 40px;
+        display: inline-block;
+    }
+
+    .userform p label {
+        margin-left: 40px;
+    }
+}
+
+@media only screen and (min-width: 770px) {
+    .userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
+        margin-right: 90px;
+    }
+
+    .userform p label {
+        margin-left: 90px;
+    }
+
+    #password-change-section ul {
+        text-align: center;
+        list-style: none;
+    }
+
+    #password-change-section #id_oldpassword {
+        margin-left: 55px;
+    }
+
+    #password-change-section #id_password1 {
+        margin-left: 75px;
+    }
+
+    #password-change-section #id_password2 {
+        margin-left: 30px;
+    }
+    
+    #password-change-section input {
+        display: inline-block;
+        text-align: center;
+    }
+}
 
 @media only screen and (max-width: 720px) {
     
@@ -377,7 +437,7 @@ img {
 
     /* Register page styling */
 
-    #id_username, #id_password1 {
+    #id_username, #id_password1, #id_email {
         margin-left: auto;
     }
     
@@ -390,16 +450,11 @@ img {
     form.userform input[type="submit"] {
         width: 250px;
         margin: 0 auto;
-
     }
 
     /* Change username form */
 
-    #id_current_password {
-        margin-left: auto;
-    }
-
-    #id_username_one {
+    #id_current_password, #id_username_one, #id_username_two {
         margin-left: auto;
     }
 
@@ -407,5 +462,12 @@ img {
 
     #id_current_account_password, #id_email_one, #id_email_two {
         margin-left: auto;
+    }
+
+    /* Instruction page styling */
+
+    .admin-change {
+        margin: 0 10px;
+        padding: 20px 5px;
     }
 }

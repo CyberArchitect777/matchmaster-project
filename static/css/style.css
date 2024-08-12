@@ -71,7 +71,7 @@ h2.blackbox {
 }
 
 .redbutton {
-    margin: 60px auto 0 auto;
+    margin: 0 auto 0 auto;
     max-width: 150px;
     color: lightgrey;
     background-color: darkred;
@@ -334,4 +334,17 @@ img {
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
+}
+
+/* */
+/* Media queries */
+/* */
+
+/* Index.html styling */
+
+@media only screen and (max-width: 720px) {
+    
+    img {
+        width: 120px;
+    }
 }

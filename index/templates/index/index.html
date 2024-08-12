@@ -5,15 +5,15 @@
 {% block main %}
 
 <div>
-    <div id="imgdiv" class="d-flex justify-content-center mt-5">
+    <div id="imgdiv" class="d-flex justify-content-center mt-4 mt-md-5">
         <img src="https://res.cloudinary.com/dp1ehadna/image/upload/v1722854489/cards-logo-transparent_lo2o7k.png" alt="Three cards shown overlapping">
     </div>
     <h1 class="blackbox">Match Master</h1>
     <h2 class="blackbox">A Pair Matching Game Designed To Test Memory</h2>
     {% if user.is_authenticated %}
-        <a href="{% url 'memorygame' %}"><p class="redbutton mb-4">Start Game</p></a>
+        <a href="{% url 'memorygame' %}"><p class="redbutton mb-4 mt-4">Start Game</p></a>
     {% else %}
-        <a href="{% url 'account_login' %}"><p class="redbutton mb-4">Start Game</p></a>
+        <a href="{% url 'account_login' %}"><p class="redbutton mb-4 mt-4">Start Game</p></a>
     {% endif %}
 </div>
 

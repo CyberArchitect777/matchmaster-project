@@ -353,12 +353,20 @@ img {
     }
     
     h2.blackbox {
-        font-size: 100%;
+        font-size: 150%;
         padding: 15px;
     }
 
     .formholder {
         margin-top: 20px;
+    }
+
+    .userform p label {
+        margin-right: 15px;
+    }
+
+    .redbutton {
+        max-width: 125px;
     }
 
     /* Index.html styling */
@@ -375,5 +383,29 @@ img {
     
     #id_password1 {
         margin-bottom: 20px;
+    }
+
+    /* Profile page styling */
+
+    form.userform input[type="submit"] {
+        width: 250px;
+        margin: 0 auto;
+
+    }
+
+    /* Change username form */
+
+    #id_current_password {
+        margin-left: auto;
+    }
+
+    #id_username_one {
+        margin-left: auto;
+    }
+
+    /* Change email form */
+
+    #id_current_account_password, #id_email_one, #id_email_two {
+        margin-left: auto;
     }
 }

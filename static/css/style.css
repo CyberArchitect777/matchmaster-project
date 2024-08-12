@@ -199,6 +199,10 @@ img {
     color: lightgrey;
 }
 
+#register-link {
+    text-decoration: underline;
+}
+
 /* */
 /* Register page styling */
 /* */
@@ -336,11 +340,40 @@ img {
 /* Media queries */
 /* */
 
-/* Index.html styling */
+
 
 @media only screen and (max-width: 720px) {
     
+    /* General styling */
+
+    h1.blackbox {
+        font-size: 200%;
+        padding: 30px;
+        margin-top: 10px;
+    }
+    
+    h2.blackbox {
+        font-size: 100%;
+        padding: 15px;
+    }
+
+    .formholder {
+        margin-top: 20px;
+    }
+
+    /* Index.html styling */
+
     img {
-        width: 120px;
+        width: 100px;
+    }
+
+    /* Register page styling */
+
+    #id_username, #id_password1 {
+        margin-left: auto;
+    }
+    
+    #id_password1 {
+        margin-bottom: 20px;
     }
 }

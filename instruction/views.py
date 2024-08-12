@@ -23,16 +23,7 @@ def delete_instruction(request, delete_id):
     instruction.delete()
     messages.add_message(request, messages.SUCCESS,
  	            'Instruction element deleted')
-    information_form = ManipulateInformation()
-    information_list = Information.objects.filter(active=1)
-
-    return render(
-	    request,
-        "instruction/instruction.html", {
-            "information_list": information_list,
-            "information_form": information_form,
-        }
-    )
+    return redirect("instruction")
 
 def display_instruction_page(request):
     """

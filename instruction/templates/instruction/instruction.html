@@ -22,10 +22,7 @@
                         <p id="infocontent{{ list_item.id }}">{{ list_item.content }}</p>
                         <div class="d-flex align-items-center mt-4 mb-3">
                             {% if user.is_superuser %} 
-                                <p id="editbutton{{ list_item.id }}"
-                                    class="small-button edit-button fs-6 me-auto">Edit</p> 
-                            {% endif %}
-                            {% if user.is_superuser %} 
+                                <a id="editbutton{{ list_item.id }}" class="me-auto edit-button" href="#instruction-form"><p class="small-button fs-6">Edit</p></a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#delete-modal{{ list_item.id }}"><p id="deletebutton{{ list_item.id }}" class="small-button fs-6 ms-auto">Delete</p></a>
                             {% endif %}
                         </div>
@@ -81,7 +78,7 @@
         </div>
     </div>
     {% if user.is_superuser %}
-        <div class="admin-change mt-4 py-4">
+        <div id="instruction-form" class="admin-change mt-4 py-4">
             <h3>Create/edit a new information section (admin only)</h3>
             {% load crispy_forms_tags %}
             <form class="crispy-form" method="POST">

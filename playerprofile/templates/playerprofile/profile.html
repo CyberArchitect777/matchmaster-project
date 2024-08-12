@@ -28,7 +28,7 @@
 <div class="container">
     <h2 class="blackbox">User Profile for {{ request.user }}</h2>
     <div class="row mt-4">
-        <p class="col-6 redbutton"><a href="{% url 'memorygame' %}">New Game</a></p>
+        <a class="col-6 d-block" href="{% url 'memorygame' %}"><p class="redbutton">New Game</p></a>
         <a class="col-6 d-block" href="#" data-bs-toggle="modal" data-bs-target="#delete-game-history"><p class="redbutton">Reset Game</p></a>
     </div>
     <div class="row">

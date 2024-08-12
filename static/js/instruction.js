@@ -6,7 +6,7 @@ for (let x=0;x<allButtons.length;x++) {
 }
 
 function fillCommentForEdit(event) {
-    let numberSelected = (event.target.id).replace("editbutton","");
+    let numberSelected = ((event.target.parentElement).id).replace("editbutton","");
     const title = document.getElementById("id_title");
     const content = document.getElementById("id_content");
     let active = document.getElementById("id_active");

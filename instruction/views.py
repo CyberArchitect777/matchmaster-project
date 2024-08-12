@@ -11,7 +11,7 @@ def contact_admin(request):
         if contact_admin_form.is_valid():
             contact_admin_form.save()
             messages.add_message(request, messages.SUCCESS,
- 	            'Message created on admin messages model')
+ 	            'Message sent to admin')
     return redirect("instruction")
 
 def delete_instruction(request, delete_id):

@@ -10,7 +10,7 @@
 
 <div class="formholder">
     <h2 class="text-center mb-3">Login</h2>
-    <p class="text-center">Please enter your username and password to log in.</p>
+    <p class="text-center p-3">Please enter your username and password to log in. You can sign-up for the site by using the register link at the top-right of the page</p>
     <form class="userform" class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{ form.as_p }}

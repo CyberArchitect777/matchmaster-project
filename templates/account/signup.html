@@ -6,7 +6,7 @@
 
 <!-- Re-created the style of the main site in this Allauth template.-->
 
-<div class="formholder">
+<section class="formholder">
     <h1 class="text-center mb-4">Register</h1>
     <p class="text-center mb-4">Please enter your details to register. An email address is not required, but would be needed for password recovery at a later date.</p>
     <form class="userform signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
@@ -19,5 +19,5 @@
             <button type="submit" class="mt-2 mb-4 p-1 px-4">{% trans "Register" %}</button>
         </div>
     </form>
-</div>
+</section>
 {% endblock main %}

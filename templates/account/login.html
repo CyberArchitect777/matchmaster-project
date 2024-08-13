@@ -6,7 +6,7 @@
 
 <!-- Re-created the style of the main site in this Allauth template -->
 
-<div class="formholder mb-4">
+<section class="formholder mb-4">
     <h2 class="text-center mb-3">Login</h2>
     <p class="text-center p-3">Please enter your username and password to log in. You can also sign-up for the site <a id="register-link" href="{% url 'account_signup' %}">here</a>.</p>
     <form class="userform" class="login" method="POST" action="{% url 'account_login' %}">
@@ -19,6 +19,6 @@
             <button class="primaryAction mb-4 p-2 px-4" type="submit">{% trans "Sign In" %}</button>
         </div>
       </form>
-</div>
+</section>
 
 {% endblock main %}

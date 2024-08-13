@@ -6,7 +6,7 @@
 
 <!-- Re-created the style of the main site in this Allauth template -->
 
-<div class="formholder">
+<section class="formholder">
     <h1 class="text-center mb-3">Login</h1>
     <p class="text-center">Are you sure you want to sign out?</p>
     <form method="post" action="{% url 'account_logout' %}">
@@ -18,7 +18,7 @@
             <button type="submit">{% trans 'Sign Out' %}</button>
         </div>
     </form>
-</div>
+</section>
 
 
 {% endblock main %}

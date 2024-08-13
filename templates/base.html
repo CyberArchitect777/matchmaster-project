@@ -59,21 +59,21 @@
             </div>
         </nav>
         <!-- Shows log-in status to the user similiarly on all devices -->
-        <div class="greenbox pb-1">
+        <section class="greenbox pb-1">
             {% if user.is_authenticated %}
                 Signed in as {{ user.username }}
             {% else %}
                 Not logged in
             {% endif %}
-        </div>
+        </section>
     </header>
     <!-- Main section -->
     <main>
         <!-- section for displaying Django messages -->
         {% for message in messages %}
-            <div id="message-style" class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }} {% endif %} alert-dismissible" role="alert">
+            <section id="message-style" class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }} {% endif %} alert-dismissible" role="alert">
                 {{ message | safe }}
-            </div>
+            </section>
         {% endfor %}
         {% block main %}
             <!-- Non-template content goes here -->

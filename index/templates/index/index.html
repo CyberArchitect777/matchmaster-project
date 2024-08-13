@@ -7,7 +7,7 @@
 {% block main %}
 
 <!-- Index page content starts here -->
-<div>
+<section>
     <div id="imgdiv" class="d-flex justify-content-center mt-4 mt-md-5">
         <img src="https://res.cloudinary.com/dp1ehadna/image/upload/v1723492044/cards-logo-transparent_engpyx.png" alt="Three cards shown overlapping">
     </div>
@@ -18,6 +18,6 @@
     {% else %}
         <a href="{% url 'account_login' %}"><p class="redbutton mb-4 mt-4">Start Game</p></a>
     {% endif %}
-</div>
+</section>
 
 {% endblock %}

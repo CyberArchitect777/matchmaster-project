@@ -6,7 +6,7 @@
 {% block main %}
 
 <!-- Delete game history modal -->
-<div class="modal" id="delete-game-history" tabindex="-1">
+<section class="modal" id="delete-game-history" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -26,9 +26,9 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<div class="container">
+<section class="container">
     <!-- Display the currently signed-in user -->
     <h2 class="blackbox">User Profile for {{ request.user }}</h2>
     <div class="row mt-4">
@@ -36,17 +36,17 @@
         <a class="col-6 d-block" href="#" data-bs-toggle="modal" data-bs-target="#delete-game-history"><p class="redbutton">Reset Game</p></a>
     </div>
     <div class="row">
-        <div class="pt-3 pb-2 col-12 blackbox">
+        <section class="pt-3 pb-2 col-12 blackbox">
             <!-- Provides statistics as calculated by the views.py file -->
             <h3>Difficulty: 18 Boxes:</h3>
             <p>Games completed: {{ results_games }}</p>
             <p>Average rounds required to win: {{ results_average }}</p>
             <p>Least rounds required to win: {{ results_least }}</p>
             <p>Most rounds required to win: {{ results_most }}</p>
-        </div>
+        </section>
         <!-- User administration section allowing them to change details -->
         <!-- This is for changing the username -->
-        <div class="formholder container pb-4">
+        <section class="formholder container pb-4">
             <form class="userform" method="POST" action="/playerprofile/">
                 {% csrf_token %}
                 {{ username_change_form.as_p }}
@@ -54,9 +54,9 @@
                     <input type="submit" value="Update Username">
                 </div>
             </form>
-        </div>
+        </section>
         <!-- Changing the email here -->
-        <div class="formholder container pb-4">
+        <section class="formholder container pb-4">
             <form class="userform" method="POST" action="/playerprofile/">
                 {% csrf_token %}
                 {{ email_change_form.as_p }}
@@ -64,12 +64,12 @@
                     <input type="submit" value="Update Email Address">
                 </div>
             </form>
-        </div>
+        </section>
         <!-- Password changing is handled by allauth, so a button is provided for that -->
-        <div class="d-flex flex-row justify-content-center align-content-center mt-4 mb-4">
+        <section class="d-flex flex-row justify-content-center align-content-center mt-4 mb-4">
             <a href="{% url 'account_change_password' %}"><p class="redbutton">Change Password</p></a>
-        </div>
+        </section>
     </div>
-</div>   
+</section>   
 
 {% endblock %}

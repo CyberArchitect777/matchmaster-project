@@ -328,6 +328,15 @@ and centering all elements on the page */
     margin: 0px;
 }
 
+.gamebox {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    object-fit: cover;
+}
+
 /* Sets the display to none as needed with a .hide tag. Allows
 the game screen and the scoreboard screen to be alternated on
 the memorygame app */

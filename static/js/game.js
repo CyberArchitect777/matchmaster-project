@@ -8,20 +8,43 @@ function drawGameBoard() {
      */
 
     for (let x=0;x<memoryGameData.totalBoxNumber;x++) {
-        let gameBox = document.createElement("div");
-        gameBox.style.background = "black url('" + memoryGameData.faceDownImage + "') no-repeat center center / cover";
+        let gameBox = document.createElement("img");
+        gameBox.classList.add("gamebox")
+        gameBox.src = memoryGameData.faceDownImage[0];
+        gameBox.alt = memoryGameData.faceDownImage[1];
         gameBox.style.width = calculateCardSize();
         gameBox.style.height = gameBox.style.width;
-        gameBox.style.margin = "5px";
         gameBox.id = "box" + x;
-        gameBox.style.display = "flex";
-        // Sets the boxes to the middle of the screen
-        gameBox.style.justifyContent = "center";
-        gameBox.style.alignItems = "center";
         gameBox.tabIndex = x; // Assign a tab index for keyboard control
         gameBox.addEventListener("click", handleClick);
         gameBoard.appendChild(gameBox);
     }
+}
+
+function loadCardUpSrc(imageNumber) {
+    /**
+     * 
+     * Returns the image source URL of a card face up when given an imageNumber to retrieve
+     * 
+     * @param {number} imageNumber
+     * @return (string)
+     * 
+     */
+
+    return memoryGameData.faceUpImages[imageNumber][0];
+}
+
+function loadCardUpAlt(imageNumber) {
+    /**
+     * 
+     * Returns the image alt value of a card face up when given an imageNumber to retrieve
+     * 
+     * @param {number} imageNumber
+     * @return (string)
+     * 
+     */
+
+    return memoryGameData.faceUpImages[imageNumber][1];
 }
 
 function generateRandomCardOrder() {
@@ -119,15 +142,17 @@ function handleInput(cardId) {
      */
 
     let selectedBox = document.getElementById(cardId);
-    if (selectedBox.style.backgroundImage == 'url("' + memoryGameData.faceDownImage + '")') {
+    if (selectedBox.src == memoryGameData.faceDownImage[0]) {
         memoryGameData.picked.push(cardId); // Add the box to an array of cards currently selected.
         if (memoryGameData.picked.length == 1) { // If this is the first card turned over
             // The slice(3) operations is to remove "box" from the front of the id.
-            selectedBox.style.backgroundImage = 'url("' + memoryGameData.faceUpImages[memoryGameData.numberPlacement[memoryGameData.picked[0].slice(3)]];
+            selectedBox.src = loadCardUpSrc(memoryGameData.numberPlacement[memoryGameData.picked[0].slice(3)]);
+            selectedBox.alt = loadCardUpAlt(memoryGameData.numberPlacement[memoryGameData.picked[0].slice(3)]);
         }
         else {
             if (memoryGameData.picked.length == 2) { // If this is the second card turned over.
-                selectedBox.style.backgroundImage = 'url("' + memoryGameData.faceUpImages[memoryGameData.numberPlacement[(cardId).slice(3)]];
+                selectedBox.src = loadCardUpSrc(memoryGameData.numberPlacement[(cardId).slice(3)]);
+                selectedBox.alt = loadCardUpAlt(memoryGameData.numberPlacement[(cardId).slice(3)]);
                 if (memoryGameData.numberPlacement[memoryGameData.picked[0].slice(3)] == memoryGameData.numberPlacement[(cardId).slice(3)]) {
                     // If a correct match has been made
                     memoryGameData.picked.length = 0;
@@ -136,8 +161,10 @@ function handleInput(cardId) {
                 else {
                     // After a second, flip the cards over again
                     setTimeout(function() {
-                        selectedBox.style.background = 'black url("' + memoryGameData.faceDownImage + '") no-repeat center center / cover';
-                        document.getElementById(memoryGameData.picked[0]).style.background = 'black url("' + memoryGameData.faceDownImage + '") no-repeat center center / cover';
+                        selectedBox.src = memoryGameData.faceDownImage[0];
+                        selectedBox.alt = memoryGameData.faceDownImage[1];
+                        document.getElementById(memoryGameData.picked[0]).src = memoryGameData.faceDownImage[0];
+                        document.getElementById(memoryGameData.picked[0]).alt = memoryGameData.faceDownImage[1];
                         memoryGameData.picked.length = 0;
                     }, 1000);
                 }
@@ -232,7 +259,7 @@ function preloadImages() {
      */
     for (let x=0;x<memoryGameData.faceUpImages.length;x++) {
         const imagePreloaded = new Image();
-        imagePreloaded.src = memoryGameData.faceUpImages[x];
+        imagePreloaded.src = memoryGameData.faceUpImages[x][0];
     }
 }
 
@@ -315,7 +342,7 @@ function restartGame() {
     }, 1000);
 }
 
-// A global object storing all necessary data to use in other functions. 
+// A global object storing all necessary data to use in other functions.
 // The object was used to avoid the possibility of variable clashes 
 // (in theory only here) with other global variables.
 const memoryGameData = {
@@ -325,18 +352,18 @@ const memoryGameData = {
     keyboardPosition: -1,
     rounds: 0,
     matchesLeft: 9,
-    faceDownImage: "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492042/card-back-transparent_xz6zze.png",
-    faceUpImages: [ 
-    "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492052/tennis_nxig8i.png",
-    "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492048/netball_jdwkkf.png",
-    "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492050/shuttlecock_kkhr6t.png",
-    "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492046/cycling_glssmu.png",
-    "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492051/tabletennis_g70rrq.png",
-    "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492049/rugby_tfkw7m.png",
-    "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492047/football_dul9j8.png",
-    "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492044/cricket_ilsb6w.png",
-    "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492042/basketball_z04lcy.png",
-    ]
+    faceDownImage: [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492042/card-back-transparent_xz6zze.png", "Card back image" ],
+    faceUpImages: [
+    [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492052/tennis_nxig8i.png", "Tennis card image" ],
+    [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492048/netball_jdwkkf.png", "Netball card image" ],
+    [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492050/shuttlecock_kkhr6t.png", "Shuttlecock card image" ],
+    [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492046/cycling_glssmu.png", "Cycling card image" ],
+    [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492051/tabletennis_g70rrq.png", "Table tennis card image" ],
+    [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492049/rugby_tfkw7m.png", "Rugby ball card image" ],
+    [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492047/football_dul9j8.png", "Football card image" ],
+    [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492044/cricket_ilsb6w.png", "Cricket card image" ],
+    [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492042/basketball_z04lcy.png", "Basketball card image" ],
+    ] // image cards for the game
 };
 
 // The main gameboard

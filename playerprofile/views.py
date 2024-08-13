@@ -87,7 +87,7 @@ def player_profile_page(request):
     # Set up initial variables
     results_average = 0
     results_most = 0
-    if (games_count > 1):
+    if (games_count > 0):
         results_least = 1000
     else:
         results_least = 0

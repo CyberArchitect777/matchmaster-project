@@ -61,7 +61,7 @@
     </header>
     <main>
         {% for message in messages %}
-            <div id="message-style" class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+            <div id="message-style" class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }} {% endif %} alert-dismissible" role="alert">
                 {{ message | safe }}
             </div>
         {% endfor %}

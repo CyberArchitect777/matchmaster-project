@@ -51,6 +51,8 @@ def player_profile_page(request):
                 request.user.save()
                 messages.add_message(request, messages.SUCCESS,
  	            'Username updated')
+            else:
+                messages.add_message(request, messages.ERROR, form.non_field_errors()[0])
         elif request.POST.get("form_id") == "email_change":
             print("email_change form update detected")
             form = ChangeEmailForm(request.POST, request=request)
@@ -60,6 +62,8 @@ def player_profile_page(request):
                 request.user.save()
                 messages.add_message(request, messages.SUCCESS,
  	            'Email updated')
+            else:
+                messages.add_message(request, messages.ERROR, form.non_field_errors()[0])
     
     username_change_form = ChangeUsernameForm(request=request)
     email_change_form = ChangeEmailForm(request=request)

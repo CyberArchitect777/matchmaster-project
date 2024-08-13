@@ -49,7 +49,7 @@
             </form>
         </div>
         <div class="formholder container pb-4">
-            <form class="userform" method="POST" action="">
+            <form class="userform" method="POST" action="/playerprofile/">
                 {% csrf_token %}
                 {{ email_change_form.as_p }}
                 <div class="row pt-3">

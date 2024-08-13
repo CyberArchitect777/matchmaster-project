@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib import messages
 from index.models import User
 
 class ChangeUsernameForm(forms.Form):
@@ -24,14 +25,14 @@ class ChangeUsernameForm(forms.Form):
         username_one = cleaned_data.get("username_one")
         username_two = cleaned_data.get("username_two")
         if not self.request.user.check_password(current_password):
-            raise forms.ValidationError("You have entered an incorrect password.")
+            raise forms.ValidationError("You have entered an incorrect password. Please try again.")
         elif username_one != username_two:
-            raise forms.ValidationError("Your username entries do not match.")
+            raise forms.ValidationError("Your username entries do not match. Please make sure they are the same.")
         elif self.request.user.username == username_one:
             raise forms.ValidationError("You already have this username.")
         else:
             if User.objects.filter(username=username_one).count() > 0:
-                raise forms.ValidationError("This username is already in use.")
+                raise forms.ValidationError("This username is already in use by another account.")
         return cleaned_data
 
 class ChangeEmailForm(forms.Form):
@@ -57,12 +58,12 @@ class ChangeEmailForm(forms.Form):
         email_one = cleaned_data.get("email_one")
         email_two = cleaned_data.get("email_two")
         if not self.request.user.check_password(current_account_password):
-            raise forms.ValidationError("You have entered an incorrect password.")
+            raise forms.ValidationError("You have entered an incorrect password. Please try again.")
         elif email_one != email_two:
-            raise forms.ValidationError("Your email entries do not match.")
+            raise forms.ValidationError("Your email entries do not match. Please ensure they match before trying again.")
         elif self.request.user.username == email_one:
             raise forms.ValidationError("You already have this email.")
         else:
             if User.objects.filter(username=email_one).count() > 0:
-                raise forms.ValidationError("This email is already in use.")
+                raise forms.ValidationError("This email is already in use by another account.")
         return cleaned_data

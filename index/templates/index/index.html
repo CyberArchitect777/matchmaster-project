@@ -1,16 +1,19 @@
+
+<!-- Base template code found on all pages imported here -->
 {% extends "base.html" %}
 
 {% load static %}
 
 {% block main %}
 
+<!-- Index page content starts here -->
 <div>
     <div id="imgdiv" class="d-flex justify-content-center mt-4 mt-md-5">
         <img src="https://res.cloudinary.com/dp1ehadna/image/upload/v1723492044/cards-logo-transparent_engpyx.png" alt="Three cards shown overlapping">
     </div>
     <h1 class="blackbox">Match Master</h1>
     <h2 class="blackbox">A Pair Matching Game Designed To Test Memory</h2>
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated %} <!-- Start game if authenticated, otherwise direct to logon screen -->
         <a href="{% url 'memorygame' %}"><p class="redbutton mb-4 mt-4">Start Game</p></a>
     {% else %}
         <a href="{% url 'account_login' %}"><p class="redbutton mb-4 mt-4">Start Game</p></a>

@@ -5,8 +5,8 @@ from django.db import models
 
 class GameType(models.Model):
     """
-        Stores a game type entry. Could be integrated into Game class, 
-        but offers a tidier future solution for a game that could have future alternative game modes. 
+        Stores a game type entry. Could be integrated into Game class for must-do Agile elements, 
+        but offers a tidier future solution for a game that could have future alternative game modes from should or could do. 
         Related to :model:'index.Game'
     """
     boxes_in_game = models.IntegerField(default=16) # Number of boxes in a specific game.

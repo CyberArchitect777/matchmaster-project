@@ -7,9 +7,9 @@ ACTIVE_DISPLAY = ((0, "Hidden"), (1, "Shown"))
 
 class Information(models.Model):
     """
-        Stores information useful to the user including instructions, site 
-        information, new developments and any other information admins deem 
-        relevant. All fields are required.
+        Stores information useful to the user including instructions,
+        site information, new developments and any other information
+        admins deem relevant. All fields are required.
 
         Related to the Django User model
     """
@@ -39,12 +39,13 @@ class Information(models.Model):
 
 class Message(models.Model):
     """
-        Stores messages sent by the user to admin. All fields are required
+        Stores messages sent by the user to admin. All fields are
+        required
     """
     sender_name = models.CharField(max_length=300, blank=False, null=False)
     sender_email = models.EmailField(blank=False, null=False)
     sender_title = models.CharField(max_length=200, blank=False, null=False)
     sender_message = models.TextField()
-    
+
     # Date and time the message was sent
     sent_on = models.DateTimeField(auto_now=True) 

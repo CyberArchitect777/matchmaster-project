@@ -315,7 +315,7 @@ function restartGame() {
     }, 1000);
 }
 
-// A global object storing all necessary data to use in other functions.
+// A global object storing all necessary data to use in other functions. 
 // The object was used to avoid the possibility of variable clashes 
 // (in theory only here) with other global variables.
 const memoryGameData = {
@@ -326,7 +326,7 @@ const memoryGameData = {
     rounds: 0,
     matchesLeft: 9,
     faceDownImage: "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492042/card-back-transparent_xz6zze.png",
-    faceUpImages: [
+    faceUpImages: [ 
     "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492052/tennis_nxig8i.png",
     "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492048/netball_jdwkkf.png",
     "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492050/shuttlecock_kkhr6t.png",
@@ -336,7 +336,7 @@ const memoryGameData = {
     "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492047/football_dul9j8.png",
     "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492044/cricket_ilsb6w.png",
     "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492042/basketball_z04lcy.png",
-    ] // image cards for the game
+    ]
 };
 
 // The main gameboard

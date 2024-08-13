@@ -8,8 +8,8 @@ from .models import Information, Message
 
 class ManipulateInformation(forms.ModelForm):
     """
-    A form for creating and updating the Information model. Four fields can be
-    found in the form as shown below.
+    A form for creating and updating the Information model. Four fields
+    can be found in the form as shown below.
     """
     class Meta:
         model = Information
@@ -17,8 +17,8 @@ class ManipulateInformation(forms.ModelForm):
 
 class MessageAdmin(forms.ModelForm):
     """
-    A form for creating Message entries. The four fields below are used in the 
-    form.
+    A form for creating Message entries. The four fields below are used
+    in the form.
     """
     class Meta:
         model = Message

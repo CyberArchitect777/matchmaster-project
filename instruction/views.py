@@ -18,7 +18,7 @@ def contact_admin(request):
         else:
             # if not, flag an error
             messages.add_message(request, messages.ERROR,
- 	            'Message could not sent to admin')
+ 	            'Message could not be sent to admin')
     # re-load instruction page.
     return redirect("instruction")
 
@@ -65,8 +65,11 @@ def display_instruction_page(request):
                 messages.add_message(request, messages.ERROR,
  	            'Instruction element could not be created')
         elif request.POST.get("form_id") == "edit_information":
-            # Select the actual record from the Information model that is required for edit
-            information_form = ManipulateInformation(request.POST, instance=Information.objects.get(id=request.POST.get("element_id")))
+            # Select the actual record from the Information model that is 
+            # required for edit
+            information_form = ManipulateInformation(
+                request.POST, instance=Information.objects.get(
+                    id=request.POST.get("element_id")))
             if information_form.is_valid():
                  # Remove data not found in the model and is thus
                  # unnecessary at this point as before.
@@ -86,7 +89,8 @@ def display_instruction_page(request):
         message_admin_form = MessageAdmin()
 
     # Sort Information model content by priority for viewing
-    information_list = Information.objects.filter(active=1).order_by('priority')
+    information_list = Information.objects.filter(
+        active=1).order_by('priority')
     
     return render(
 	    request,

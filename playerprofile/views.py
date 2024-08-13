@@ -41,7 +41,9 @@ def player_profile_page(request):
             game_type = GameType.objects.first()
             # Acquire the game score
             rounds_taken = request.POST.get("rounds-taken")
-            game_entry = Game(game_player=request.user, game_type_setting=game_type, rounds_to_complete=rounds_taken)
+            game_entry = Game(
+                game_player=request.user, game_type_setting=game_type, 
+                rounds_to_complete=rounds_taken)
             # Save the game record and notify the user
             game_entry.save()
             messages.add_message(request, messages.SUCCESS,
@@ -60,7 +62,8 @@ def player_profile_page(request):
             else:
                 # If a problems is detected, the error message is sent to
                 # the user here
-                messages.add_message(request, messages.ERROR, form.non_field_errors()[0])
+                messages.add_message(
+                    request, messages.ERROR, form.non_field_errors()[0])
         elif request.POST.get("form_id") == "email_change":
             # A POST request from the email change form
             form = ChangeEmailForm(request.POST, request=request)
@@ -74,7 +77,8 @@ def player_profile_page(request):
             else:
                 # If a problem is detected, the error message is sent to
                 # the user here
-                messages.add_message(request, messages.ERROR, form.non_field_errors()[0])
+                messages.add_message(
+                    request, messages.ERROR, form.non_field_errors()[0])
     
     # Create the forms here for display on a template.
     username_change_form = ChangeUsernameForm(request=request)

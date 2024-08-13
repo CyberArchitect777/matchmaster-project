@@ -19,4 +19,6 @@ class MessageAdmin(admin.ModelAdmin):
     """
     list_display = ("sender_title", "sender_name", "sent_on", )
     ordering = [ "-sent_on" ] # Order entries based on latest dates first
-    readonly_fields = [ "sent_on" ] # Show timestamp data on admin panel for each message
+
+    # Show timestamp data on admin panel for each message
+    readonly_fields = [ "sent_on" ] 

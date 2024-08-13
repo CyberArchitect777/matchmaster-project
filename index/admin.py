@@ -8,7 +8,8 @@ class GameAdmin(admin.ModelAdmin):
     """
     Defines how the Game model is displayed in the admin panel
     """
-    list_display = ("game_player", "game_type_setting", "rounds_to_complete", )
+    list_display = ("game_player", "game_type_setting", 
+    "rounds_to_complete", )
 
 @admin.register(GameType)
 class GameTypeAdmin(admin.ModelAdmin):

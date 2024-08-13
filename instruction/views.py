@@ -6,6 +6,9 @@ from .forms import ManipulateInformation, MessageAdmin
 # Create your views here.
 
 def contact_admin(request):
+    """
+    
+    """
     if request.method == "POST":
         contact_admin_form = MessageAdmin(request.POST)
         if contact_admin_form.is_valid():

@@ -7,6 +7,8 @@ html, body {
     height: 100%;
 }
 
+/* Use CSS Grid to split the page up into one small header and footer 
+separated by one large main section */
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -32,14 +34,11 @@ button.btn.btn-secondary {
     border-radius: 20px;
 }
 
-/*#message-style {
-    background-color: green;
-}*/
-
 /* */
 /* General styling */
 /* */
 
+/* Creates a standardised black box which is used a lot in the project */
 .blackbox {
     color: lightgrey;
     text-align: center;
@@ -54,6 +53,7 @@ button.btn.btn-secondary {
     color: lightgrey;
 }
 
+/* Sets other size attributes for blackbox text */
 h1.blackbox {
     font-size: 300%;
     padding: 60px;
@@ -66,6 +66,7 @@ h2.blackbox {
     max-width: 400px;
 }
 
+/* Provides styling for the common red buttons */
 .redbutton {
     margin: 0 auto 0 auto;
     max-width: 150px;
@@ -86,6 +87,7 @@ h2.blackbox {
     background-color: red;
 }
 
+/* Styles a smaller red button used notably on the instruction page */
 .small-button {
     background-color: darkred;
     color: white;
@@ -102,6 +104,7 @@ h2.blackbox {
     background-color: red;
 }
 
+/* Used for styling some of the forms on the site */
 .formholder {
     background-color: #000000BB;
     color: lightgrey;
@@ -110,6 +113,9 @@ h2.blackbox {
     padding-top: 24px;
 }
 
+/* Makes the font size slightly smaller on some of the very small
+screen sizes. As these are certain to be phones, people will be looking 
+at them closer anyway */
 .userform {
     font-size: 90%;
 }
@@ -147,9 +153,12 @@ a.nav-link, a.navbar-brand {
 }
   
 .navbar-toggler-icon {
+    /* Provides an icon for the navbar on mobile view */
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Styles the nav bar based on the user's current location on the page and 
+if they are hovering over nav links */
 .navbar-brand:hover, .navbar-brand:focus, .navbar-brand:focus-visible {
     color: inherit;
     text-decoration: underline;
@@ -181,6 +190,7 @@ footer {
 /* Index.html styling */
 /* */
 
+/* The default size for the main page card icon */
 img {
     width: 250px;
 }
@@ -211,6 +221,7 @@ img {
 /* Register page styling */
 /* */
 
+/* Move the input entries to the right to maximise room on small devices */
 .userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
     margin-left: auto;
 }
@@ -248,6 +259,10 @@ img {
 
 /* Change username form */
 
+/* Lines up boxes to improve the user-interface
+Django forms are hard to style at times as the user has less control, 
+particularly having an impact on small devices */
+
 #id_current_password {
     margin-left: 35px;
 }
@@ -274,6 +289,8 @@ img {
 /* Game page styling */
 /* */
 
+/* Maximising the screen space available 
+and centering all elements on the page */
 #gamepage {
     height: 100%;
     display: flex;
@@ -281,6 +298,7 @@ img {
     justify-content: center;
 }
 
+/* Using CSS grid to set up the page */
 .gamepanel-class {
     display: grid;
     grid-template-rows: 1fr auto;
@@ -309,6 +327,10 @@ img {
     padding: 20px;
     margin: 0px;
 }
+
+/* Sets the display to none as needed with a .hide tag. Allows
+the game screen and the scoreboard screen to be alternated on
+the memorygame app */
 
 .hide {
     display: none;
@@ -351,12 +373,15 @@ img {
 /* Media queries */
 /* */
 
+/* Styling for slightly bigger screen sizes than the minimum */
 @media only screen and (min-width: 376px) {
 
+    /* Userform font restored to 100% size */
     .userform {
         font-size: 100%;
     }
 
+    /* Improving form design */
     .userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
         margin-right: 10px;
     }
@@ -378,6 +403,7 @@ img {
     }
 }
 
+/* Styling on bigger screens now */
 @media only screen and (min-width: 770px) {
     .userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
         margin-right: 90px;
@@ -410,6 +436,7 @@ img {
     }
 }
 
+/* Applying earlier project styling on small screens */
 @media only screen and (max-width: 720px) {
     
     /* General styling */
@@ -439,12 +466,15 @@ img {
 
     /* Index.html styling */
 
+    /* Decreasing main logo image on home screen to a 
+    smaller size for smaller screens */
     img {
         width: 100px;
     }
 
     /* Register page styling */
 
+    /* Moving all input fields to the right on small screens */
     #id_username, #id_password1, #id_email {
         margin-left: auto;
     }

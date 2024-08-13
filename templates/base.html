@@ -5,6 +5,8 @@
 
 {% load static %}
 
+<!-- Base HTML content for all pages-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,13 +14,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Master</title>
+    <!-- Bootstrap 5.3.3 import -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom style sheet -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body class="container">
+    <!-- Header section -->
     <header>
+        <!-- Bootstrap navbar adapted with DTL-->
         <nav class="navbar navbar-expand-sm">
             <div class="container">
                 <a class="navbar-brand {% if request.path == '/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'index' %}">Match Master</a>
@@ -29,6 +35,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="ms-auto navbar-nav mb-2 mb-lg-0">
+                        <!-- Different menu options offered depending opn authentication status -->
                         {% if user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link {% if request.path == '/playerprofile/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'playerprofile' %}">Profile</a>
@@ -51,6 +58,7 @@
                 </div>
             </div>
         </nav>
+        <!-- Shows log-in status to the user similiarly on all devices -->
         <div class="greenbox pb-1">
             {% if user.is_authenticated %}
                 Signed in as {{ user.username }}
@@ -59,7 +67,9 @@
             {% endif %}
         </div>
     </header>
+    <!-- Main section -->
     <main>
+        <!-- section for displaying Django messages -->
         {% for message in messages %}
             <div id="message-style" class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }} {% endif %} alert-dismissible" role="alert">
                 {{ message | safe }}
@@ -69,16 +79,18 @@
             <!-- Non-template content goes here -->
         {% endblock main %}
     </main>
+    <!-- Footer section -->
     <footer class="d-flex justify-content-between align-items-center">
-            <p class="my-2 ms-2">Sports Theme</p>
-            <p class="my-2 me-2">Created: Barrie Millar</p>
+        <p class="my-2 ms-2">Sports Theme</p>
+        <p class="my-2 me-2">Created: Barrie Millar</p>
     </footer>
+    <!-- JS script section, Bootstrap followed by custom JS code depending on Django app-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    {% block gamescript %}
+    {% block jsscript %}
         <!-- JavaScript game content goes here -->
-    {% endblock gamescript %}
+    {% endblock jsscript %}
 </body>
 
 </html>

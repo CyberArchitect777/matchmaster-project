@@ -87,11 +87,14 @@ def player_profile_page(request):
     # Set up initial variables
     results_average = 0
     results_most = 0
+    # Set least games to a very high value to ensure the next game is lower
+    # only if there are no existing games set.
     if (games_count > 0):
         results_least = 1000
     else:
         results_least = 0
 
+    # Calculate statistics for all games so far
     for element in queryset:
         results_average += element.rounds_to_complete
         if results_least > element.rounds_to_complete:
@@ -99,6 +102,7 @@ def player_profile_page(request):
         if results_most < element.rounds_to_complete:
             results_most = element.rounds_to_complete
 
+    # If more than one game, calculate the average to two decimal places
     if (games_count > 1):
         results_average = results_average / games_count
         results_average = round(results_average, 2)

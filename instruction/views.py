@@ -7,7 +7,8 @@ from .forms import ManipulateInformation, MessageAdmin
 
 def contact_admin(request):
     """
-    
+    Processes form POST data to add a message to the Message model.
+    Messages added here are designed to be viewed by admin only.
     """
     if request.method == "POST":
         contact_admin_form = MessageAdmin(request.POST)
@@ -15,6 +16,9 @@ def contact_admin(request):
             contact_admin_form.save()
             messages.add_message(request, messages.SUCCESS,
  	            'Message sent to admin')
+        else:
+            messages.add_message(request, messages.ERROR,
+ 	            'Message could not sent to admin')
     return redirect("instruction")
 
 def delete_instruction(request, delete_id):
@@ -45,6 +49,9 @@ def display_instruction_page(request):
                 information_object.save()
                 messages.add_message(request, messages.SUCCESS,
  	            'Instruction element created')
+            else:
+                messages.add_message(request, messages.ERROR,
+ 	            'Instruction element could not be created')
         elif request.POST.get("form_id") == "edit_information":
             print("Edit Information")
             print(request.POST)
@@ -57,6 +64,9 @@ def display_instruction_page(request):
                 information_object.save()
                 messages.add_message(request, messages.SUCCESS,
  	            'Instruction element updated')
+            else:
+                messages.add_message(request, messages.ERROR,
+ 	            'Instruction element could not be updated')
         return redirect("instruction")
     else:
         information_form = ManipulateInformation()

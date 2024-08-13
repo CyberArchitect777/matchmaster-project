@@ -1,9 +1,11 @@
+
 {% extends "base.html" %}
 
 {% load static %}
 
 {% block main %}
 
+<!-- Delete game history modal -->
 <div class="modal" id="delete-game-history" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -15,6 +17,7 @@
                 <p class="text-center">Are you sure you want to delete your game history?</p>
             </div>
             <div class="modal-footer">
+                <!-- Django performs the delete function if yes is pressed -->
                 <form class="mx-auto" action="{% url 'delete_game_history' %}" method="POST">
                     {% csrf_token %}
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -26,6 +29,7 @@
 </div>
 
 <div class="container">
+    <!-- Display the currently signed-in user -->
     <h2 class="blackbox">User Profile for {{ request.user }}</h2>
     <div class="row mt-4">
         <a class="col-6 d-block" href="{% url 'memorygame' %}"><p class="redbutton">New Game</p></a>
@@ -33,12 +37,15 @@
     </div>
     <div class="row">
         <div class="pt-3 pb-2 col-12 blackbox">
+            <!-- Provides statistics as calculated by the views.py file -->
             <h3>Difficulty - 18 Boxes:</h3>
             <p>Games completed: {{ results_games }}</p>
             <p>Average rounds required to win: {{ results_average }}</p>
             <p>Least rounds required to win: {{ results_least }}</p>
             <p>Most rounds required to win: {{ results_most }}</p>
         </div>
+        <!-- User administration section allowing them to change details -->
+        <!-- This is for changing the username -->
         <div class="formholder container pb-4">
             <form class="userform" method="POST" action="/playerprofile/">
                 {% csrf_token %}
@@ -48,6 +55,7 @@
                 </div>
             </form>
         </div>
+        <!-- Changing the email here -->
         <div class="formholder container pb-4">
             <form class="userform" method="POST" action="/playerprofile/">
                 {% csrf_token %}
@@ -57,6 +65,7 @@
                 </div>
             </form>
         </div>
+        <!-- Password changing is handled by allauth, so a button is provided for that -->
         <div class="d-flex flex-row justify-content-center align-content-center mt-4 mb-4">
             <a href="{% url 'account_change_password' %}"><p class="redbutton">Change Password</p></a>
         </div>

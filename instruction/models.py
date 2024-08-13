@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
 # The textual description assigned to the active variable in :model:'instruction.Information'
 ACTIVE_DISPLAY = ((0, "Hidden"), (1, "Shown")) 
 

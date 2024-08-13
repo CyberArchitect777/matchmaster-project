@@ -1,8 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
-
 class GameType(models.Model):
     """
         Stores a game type entry. Could be integrated into Game class for must-do Agile elements, 

@@ -9,15 +9,18 @@
         <div id="gameboard" class="h-100 d-flex flex-wrap justify-content-center align-content-center">
             <!--JavaScript game board-->
         </div>
+        <!-- In-game score board on the bottom -->
         <div id="scoreboard">
             <p id="rounds" class="text-center">Rounds played: 0</p>
             <p id="restart-game-button" class="redbutton">Restart Game</p>
             <p id="matches" class="text-center">Pair matches left: 9</p>
         </div>
     </div>
+    <!-- Hidden dialog box that pops up at the end of the game -->
     <div id="scorepanel-id" class="scorepanel-class hide blackbox">
         <h1 class="text-center">Congratulations, you have won!</h1>
         <p class="text-center">You took <span id="round-number">0</span> rounds to complete this game</p>
+        <!-- Clicking this button sends the data to Django -->
         <p id="end-game-button" class="redbutton mt-1">End Game</p>
     </div>
 </section>
@@ -26,6 +29,7 @@
 
 {% block gamescript %}
 
+<!-- Game Javascript Code -->
 <script src="{% static 'js/game.js' %}"></script>
 
 {% endblock %}

@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 
+# If env.py file exists, import it.
 if os.path.isfile("env.py"):
     import env
 
@@ -30,6 +31,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set DEBUG to False unless Django finds True in env.py
+
+# If DJANGO_DEBUG is set to anything other than TRUE, even if it
+# doesn't exist, DEBUG is turned off. This is a good way to keep
+# DEBUG off in deployment and yet set it locally yourself.
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 

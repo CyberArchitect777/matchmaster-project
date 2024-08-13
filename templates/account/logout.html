@@ -7,15 +7,15 @@
 <!-- Re-created the style of the main site in this Allauth template -->
 
 <section class="formholder">
-    <h1 class="text-center mb-3">Login</h1>
-    <p class="text-center">Are you sure you want to sign out?</p>
+    <h1 class="text-center mb-3">Logout</h1>
+    <p class="text-center">Are you sure you want to log out?</p>
     <form method="post" action="{% url 'account_logout' %}">
         {% csrf_token %}
         {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
         {% endif %}
         <div class="d-flex justify-content-center pb-4">
-            <button type="submit">{% trans 'Sign Out' %}</button>
+            <button type="submit">{% trans 'Log Out' %}</button>
         </div>
     </form>
 </section>

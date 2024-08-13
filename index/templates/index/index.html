@@ -16,7 +16,7 @@
     {% if user.is_authenticated %} <!-- Start game if authenticated, otherwise direct to logon screen -->
         <a href="{% url 'memorygame' %}"><p class="redbutton mb-4 mt-4">Start Game</p></a>
     {% else %}
-        <a href="{% url 'account_login' %}"><p class="redbutton mb-4 mt-4">Start Game</p></a>
+        <a href="{% url 'account_login' %}"><p class="redbutton mb-4 mt-4">Log in</p></a>
     {% endif %}
 </section>
 

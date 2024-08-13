@@ -352,6 +352,7 @@ const memoryGameData = {
     keyboardPosition: -1,
     rounds: 0,
     matchesLeft: 9,
+    // image cards sources and alt tags for the game
     faceDownImage: [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492042/card-back-transparent_xz6zze.png", "Card back image" ],
     faceUpImages: [
     [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492052/tennis_nxig8i.png", "Tennis card image" ],
@@ -363,7 +364,7 @@ const memoryGameData = {
     [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492047/football_dul9j8.png", "Football card image" ],
     [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492044/cricket_ilsb6w.png", "Cricket card image" ],
     [ "https://res.cloudinary.com/dp1ehadna/image/upload/v1723492042/basketball_z04lcy.png", "Basketball card image" ],
-    ] // image cards for the game
+    ] 
 };
 
 // The main gameboard

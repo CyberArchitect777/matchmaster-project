@@ -218,35 +218,35 @@ Won't do:
 
 With the user stories completed, a decision had to be made on how the project would be managed. It was decided that a GitHub project board would be used to develop the project. Thus, the first stage was to map the user stories onto the project board. The links to both the board and the user stories can be seen below.
 
-[GitHub Project Board]
+[GitHub Project Board](https://github.com/users/CyberArchitect777/projects/10)
 
 User stories: 
 
 In keeping with the MoSCoW prioritsation, the user story was given priorities on the board. Must-do stories were assigned a priority of P0 and can be found below.
 
-Play the game: https://github.com/CyberArchitect777/matchmaster-project/issues/2
-Access documentation: https://github.com/CyberArchitect777/matchmaster-project/issues/3
-Contact site creator: https://github.com/CyberArchitect777/matchmaster-project/issues/4
-Play on multiple devices: https://github.com/CyberArchitect777/matchmaster-project/issues/5
-Game user account management: https://github.com/CyberArchitect777/matchmaster-project/issues/6
-Change account details: https://github.com/CyberArchitect777/matchmaster-project/issues/11
-Gameplay interactions are immediately responsive: https://github.com/CyberArchitect777/matchmaster-project/issues/12
-Reset password: https://github.com/CyberArchitect777/matchmaster-project/issues/13
-Delete game record: https://github.com/CyberArchitect777/matchmaster-project/issues/18
+[Play the game](https://github.com/CyberArchitect777/matchmaster-project/issues/2)
+[Access documentation](https://github.com/CyberArchitect777/matchmaster-project/issues/3)
+[Contact site creator](https://github.com/CyberArchitect777/matchmaster-project/issues/4)
+[Play on multiple devices](https://github.com/CyberArchitect777/matchmaster-project/issues/5)
+[Game user account management](https://github.com/CyberArchitect777/matchmaster-project/issues/6)
+[Change account details](https://github.com/CyberArchitect777/matchmaster-project/issues/11)
+[Gameplay interactions are immediately responsive](https://github.com/CyberArchitect777/matchmaster-project/issues/12)
+[Reset password](https://github.com/CyberArchitect777/matchmaster-project/issues/13)
+[Delete game record](https://github.com/CyberArchitect777/matchmaster-project/issues/18)
 
 Should-do stories were assigned a priority of P1:
 
-Change game difficulty level: https://github.com/CyberArchitect777/matchmaster-project/issues/7
-View leaderboard: https://github.com/CyberArchitect777/matchmaster-project/issues/10
+[Change game difficulty level](https://github.com/CyberArchitect777/matchmaster-project/issues/7)
+[View leaderboard](https://github.com/CyberArchitect777/matchmaster-project/issues/10)
 
 Could-do stories were assigned a priority of P2:
 
-Change content of hidden and visible cards: https://github.com/CyberArchitect777/matchmaster-project/issues/8
-Change background image and site colour scheme: https://github.com/CyberArchitect777/matchmaster-project/issues/9
-Sound effects: https://github.com/CyberArchitect777/matchmaster-project/issues/14
-Music: https://github.com/CyberArchitect777/matchmaster-project/issues/15
-User profile avatar: https://github.com/CyberArchitect777/matchmaster-project/issues/16
-Change game modes: https://github.com/CyberArchitect777/matchmaster-project/issues/17
+[Change content of hidden and visible cards](https://github.com/CyberArchitect777/matchmaster-project/issues/8)
+[Change background image and site colour scheme](https://github.com/CyberArchitect777/matchmaster-project/issues/9)
+[Sound effects](https://github.com/CyberArchitect777/matchmaster-project/issues/14)
+[Music](https://github.com/CyberArchitect777/matchmaster-project/issues/15)
+[User profile avatar](https://github.com/CyberArchitect777/matchmaster-project/issues/16)
+[Change game modes](https://github.com/CyberArchitect777/matchmaster-project/issues/17)
 
 Won't-do stories were not added to the board as there is no plan to implement them for the foreseeable future.
 
@@ -254,6 +254,20 @@ All the links to the user stories above contain titles, user stories and accepta
 
 <a id="design"></a>
 ## Project Design
+
+Some initial consideration was given to the name of the project. Eventually, a decision was made to go with "Match Master" which flows nicely and has a symbolic refernce to matching and also being good at something. It was decided early on that this would be a themed project to make the game more visually focused and stylish. After past experiences using abstract wireframe models and seeing the effects of a graphical design tool in a previous hackathon, it was decided that more detailed wireframing would be utilised on this occasion. Canva was the site of choice for this and several models of how the site may look were designed.
+
+A sketch of the front page was created and can be seen below. It looks very much like the site as it was finally created.
+
+![Front page on desktop when signed out](/docs/images/desktop-front-out.png "Front page on desktop when signed out")
+
+The design carried an attractive front-end splash screen with a green themed interface. A standard nav bar can be found at the top and a descriptive footer at the bottom. A sketch of the page while signed in is much the same, although the nav bar looked different. 
+
+![Front page on desktop when signed in](/docs/images/desktop-front-in.png "Front page on desktop when signed in")
+
+A mockup of a mobile phone version was also created at a minimum 320x576 size. It can be seen that the mobile version looks like a smaller version of the desktop. However, the hidden nav bar means that it was necessary to demonstrate more clearly what the user account status was. This was designed in for this version.
+
+![Front page on mobile ed in](/docs/images/mobile-front-out.png "Front page on desktop when signed in")
 
 
 

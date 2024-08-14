@@ -111,7 +111,7 @@ class ChangeEmailForm(forms.Form):
             raise forms.ValidationError(
                 "Your email entries do not match. " 
                 "Please ensure they match before trying again.")
-        elif self.request.user.username == email_one:
+        elif self.request.user.email == email_one:
             raise forms.ValidationError("You already have this email.")
         else:
             if User.objects.filter(username=email_one).count() > 0:

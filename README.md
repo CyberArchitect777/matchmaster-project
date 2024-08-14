@@ -9,10 +9,9 @@
 3. [Agile: Project Planning](#agile)
 4. [Project Design](#design)
 5. [Instructions and Features](#instructions)
+6. [Testing](#testing)
 
 3. Security
-2. [Instructions and Features](#instructions)
-3. [Development Considerations](#development)
 4. [Testing](#testing)
 5. [Future Development](#future)
 6. [Project Deployment](#deployment)
@@ -429,5 +428,61 @@ Finally, the website uses the Python module AllAuth to provide user authenticati
 ![Desktop logout page screenshot when signed in](/docs/screenshots/desktop-logout-in.png "Desktop logout page screenshot when signed in")
 ![Desktop register page screenshot when logged out](/docs/screenshots/desktop-register-out.png "Desktop register page screenshot when logged out")
 
+## Testing
 
+The following test procedures were run to ensure the website ran as expected and find any outstanding bugs found:-
 
+- Full site responsive test to see if the site worked successfully down to a minimum of 320px by 576px.
+- Further manual testing was done on the website to make sure things worked as expected. The exact results are shown below.
+
+AllAuth/Custom Authentication
+
+- (Pass) Check to ensure that it is not possible to access secured areas while not authenticated
+- (Pass) Check to make sure that it is not possible to access another user account data
+- (Pass) Ensure that it is not possible to log in with invalid details
+- (Pass) Attempted to create a new user over one who already exists and failed
+- (Pass) Tried to create a valid user account through registration
+- (Pass) Tried to log in with valid user details - Pass
+- (Pass) Check if Django messages appear as you log in and out as well as register
+- (Pass) Tried to log out of the account and succeeded
+- (Pass, but AllAuth error message not obvious on first sight) Tried to change password by not matching passwords and failed
+- (Pass, but AllAuth error message not obvious on first sight) Tried to change password with wrong current password but failed.
+- (Pass) Changed password, logged out and then back in to see if it works successfully.
+
+Index app
+
+- (Pass) Check to see if the “Start Game” button works on the index page when user is logged in
+- (Pass) Check to see if the “Log In” button works as expected on the index page when a user is not logged in
+
+Instruction app
+
+- (Pass) Ensured that a normal user cannot have superuser access on the instruction app
+- (Pass) Tried to send a valid message to admin using legitimate details
+- (Pass) Tried to complete the send to admin form without including a field and failed
+- (Pass) Tried entering a non-email for the send to admin form, submitting and failing validation
+- (Pass) Tested the accordion functionality and found it working perfectly with database data
+- (Pass) Tried to send an admin message without filling in one field and failed
+- (Pass) Attempted to add a new instruction record as a superuser
+- (Pass) Attempted to remove a instruction record as a superuser
+- (Pass) Attempted to edit a instruction record as a superuser
+- (Pass) Re-prioritised an instruction record and the list order of information should change successfully.
+- (Pass) Set active to hide on a instruction record to see if it disappears from display (non-super-user display only)
+- (Pass) Make sure that hidden instruction records still appear to superusers.
+- (Pass) Test if superusers can set instruction records to show and hide for non-superusers
+
+Playerprofile app
+
+- (Pass) Tested to see if a new game record is created after a game is played
+- (Pass) Tried to change the username with the wrong password and failed
+- (Pass) Tried to change a username to the same one and failed
+- (Pass) Tried to change a username without having a matching username and failed
+- (Pass) Tried to change email correctly and succeeded
+- (Pass) Tried to change email to the same one I already had and failed
+- (Pass) Tried to use the wrong password to change the email and failed
+- (Pass) Tried to change non matching email, failed
+
+Memorygame app
+
+- (Pass) Tried to open more than two boxes at a game in the game and failed
+- (Pass, boxes opened but quickly reset) Tried to restart the game and open boxes while it reset to sabotage the game.
+- (Pass) Tried resetting the game record 

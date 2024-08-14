@@ -5,6 +5,7 @@
 # Table of Contents
 
 1. [Introduction](#introduction)
+2. [Project Goals](#goals)
 2. [Project Design](#design)
 3. Security
 2. [Instructions and Features](#instructions)
@@ -75,4 +76,19 @@ Outcome
 
 * Success deployment of project to a cloud platform with full documentation
 * Ensure that all code committed is free from any sensitive information and all deployments/repositories are secure.
+
+<a id="goals"></a>
+## Project Goals
+
+### Problem statement
+
+There has been an increasing focus on two areas of mental wellbeing over the last few years. The first of these and most serious relates to cognitive decline and the rising scale of dementia related conditions at this point in history. The second relates to the increasing levels of concern surrounding our present exposure to social media and smartphones and an ever less focused lifestyle where distractions are constant and focus time is much dimmished. However, it is also clear that technology is a part of our lives and that it is going to increase in importance moving forward. As an example of this, gaming has become a mainstream interest from an initially niche hobby and attracts millions of people. With this in mind, there has been an increasing interest in games targeting memory training, cognitive improvement and concentration. It is hoped that this project can provide some assistance in joining this effort to develop improvements in those who wish to use it.
+
+### Project Purpose
+
+This project will attempt to provide a cognitive training application with a combined ability to track long-term performance. Users will then be able to review their own progress over time as they work on their own goals. Given the timescale available for this project, it is clear that the resources available are limited. For this reason, it is expected that a base level website will be provided. From this platform, further development and improvements can be made to expand the design, scope and functionality.
+
+### Target Audience
+
+The target audience for this website are those who are looking to improve their intellectual performance and capability along with those who enjoy challenging gameplay. In addition, the ability to track results will appeal to those interested in charting how they may improve over time, on both an achievement basis and as a marker of progress.
 

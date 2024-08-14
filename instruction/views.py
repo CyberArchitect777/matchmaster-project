@@ -89,8 +89,7 @@ def display_instruction_page(request):
         message_admin_form = MessageAdmin()
 
     # Sort Information model content by priority for viewing
-    information_list = Information.objects.filter(
-        active=1).order_by('priority')
+    information_list = Information.objects.all().order_by('priority')
     
     return render(
 	    request,

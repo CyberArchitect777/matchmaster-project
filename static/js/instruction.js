@@ -25,6 +25,7 @@ function fillCommentForEdit(event) {
     
     // Removes textual information from the front of the line
     priority.value = (document.getElementById("prioritydisplay" + numberSelected).innerText).substring(10);
+    active.value = (document.getElementById("activedisplay" + numberSelected).innerText).substring(28);
 
     const formId = document.getElementById("form_id");
     

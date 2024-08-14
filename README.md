@@ -278,54 +278,58 @@ All the links to the user stories above contain titles, user stories and accepta
 <a id="design"></a>
 ## Project Design
 
-Some initial consideration was given to the name of the project. Eventually, a decision was made to go with "Match Master" which flows nicely and has a symbolic refernce to matching and also being good at something. It was decided early on that this would be a themed project to make the game more visually focused and stylish. After past experiences using abstract wireframe models and seeing the effects of a graphical design tool in a previous hackathon, it was decided that more detailed wireframing would be utilised on this occasion. Canva was the site of choice for this and several models of how the site may look were designed. This is shown in the next section.
+Some initial consideration was given to the name of the project. Eventually, a decision was made to go with "Match Master" which flows nicely and has a symbolic refernce to matching and also being good at something. It was decided early on that this would be a themed project to make the game more visually focused and stylish. An interface flow diagram was then created to try and picture how the site would work in practice. This is shown below:-
+
+![Interface flow diagram](/docs/interface-flow-diagram/user-interface-flow.png "Interface flow diagram")
 
 ### Interface design
 
+After past experiences using abstract wireframe models and seeing the effects of a graphical design tool in a previous hackathon, it was decided that a more detailed design process would be utilised on this occasion. Canva was the site of choice for this and several models of how the site may look were designed. This is shown in the next section.
+
 A sketch of the front page was created and can be seen below. It looks very much like the site as it was finally created.
 
-![Front page on desktop when signed out](/docs/images/desktop-front-out.png "Front page on desktop when signed out")
+![Front page on desktop when signed out](/docs/canva-design/desktop-front-out.png "Front page on desktop when signed out")
 
 The design carried an attractive front-end splash screen with a green themed interface. A standard nav bar can be found at the top and a descriptive footer at the bottom. A sketch of the page while signed in is much the same, although the nav bar looked different. 
 
-![Front page on desktop when signed in](/docs/images/desktop-front-in.png "Front page on desktop when signed in")
+![Front page on desktop when signed in](/docs/canva-design/desktop-front-in.png "Front page on desktop when signed in")
 
 A mockup of a mobile phone version was also created at a minimum 320x576 size. It can be seen that the mobile version looks like a smaller version of the desktop. However, the hidden nav bar means that it was necessary to demonstrate more clearly what the user account status was. This was designed in for this version.
 
-![Front page on mobile when signed out](/docs/images/mobile-front-out.png "Front page on mobile when signed out")
+![Front page on mobile when signed out](/docs/canva-design/mobile-front-out.png "Front page on mobile when signed out")
 
 Two designs from Canva are shown below depicting the login screen on desktop and on mobile. These are also quite similiar to the actual implementation ultimately, although there are slight differences. 
 
-![Login page on mobile when signed out](/docs/images/mobile-login-out.png "Login page on mobile when signed out")
-![Login page on desktop when signed out](/docs/images/desktop-login-out.png "Login page on desktop when signed out")
+![Login page on mobile when signed out](/docs/canva-design/mobile-login-out.png "Login page on mobile when signed out")
+![Login page on desktop when signed out](/docs/canva-design/desktop-login-out.png "Login page on desktop when signed out")
 
 The next design shows how the game was envisied at the start. The plan was to eliminate all other elements from the screen and free up as much space as possible for the game cards. It was thought at the time that space might be a big problem on smaller devices for the game, although this turned out to be less of an issue than expected.
 
-![Game page on desktop when signed in](/docs/images/desktop-game-in.png "Game page on desktop when signed in")
+![Game page on desktop when signed in](/docs/canva-design/desktop-game-in.png "Game page on desktop when signed in")
 
 The profile page on desktop was clearly going to be a more crowded space with all the components that needed to go into it, so the design originally showed a three column display on large screens. In hindsight, the difficulty panels should have been combined with a carousel component to create a scrolling pane, but this seemed to work fine given the space available. 
 
-![Profile page on desktop when signed in](/docs/images/desktop-profile-in.png "Profile page on desktop when signed in")
+![Profile page on desktop when signed in](/docs/canva-design/desktop-profile-in.png "Profile page on desktop when signed in")
 
 On mobile, there is less space available. It was envisaged therefore that pages would have a scrolling design to fit all the content in. The two screenshots below show the page as it is scrolled on mobile.
 
-![First profile page on mobile when signed in](/docs/images/mobile-profile-in-p1.png "First profile page on mobile when signed in")
-![Second profile page on mobile when signed in](/docs/images/mobile-profile-in-p2.png "Second profile page on mobile when signed in")
+![First profile page on mobile when signed in](/docs/canva-design/mobile-profile-in-p1.png "First profile page on mobile when signed in")
+![Second profile page on mobile when signed in](/docs/canva-design/mobile-profile-in-p2.png "Second profile page on mobile when signed in")
 
 Finally, the mockup designs of the register and instruction pages are shown, desktop only this time. The site theme and layout were quite consistent from page to page in general, colourful, but also embodying the idea of consistency and functionality found in modern web applications
 
-![Register page on desktop when signed out](/docs/images/desktop-register-out.png "Register page on desktop when signed out")
-![Instructions page on desktop when signed out](/docs/images/desktop-instructions-out.png "Instructions page on desktop when signed out")
+![Register page on desktop when signed out](/docs/canva-design/desktop-register-out.png "Register page on desktop when signed out")
+![Instructions page on desktop when signed out](/docs/canva-design/desktop-instructions-out.png "Instructions page on desktop when signed out")
 
 ### Database Design
 
 As a full-stack data-driven web application, a database was required to store data from session to session. For this project, a PostgrlSQL database server was used as provided by Code Institute. Using the Django framework, the first step was to create some models to store data. After some thought, the following design decisions were made as can be seen from this early entity relationship diagram. 
 
-![Early entity relationship diagram](/docs/images/early-erd.png "Early entity relationship diagram")
+![Early entity relationship diagram](/docs/erd/early-erd.png "Early entity relationship diagram")
 
 The AutoField entries in each table are auto-generated by Django and are primary keys. The User model is a Django default table and the use of it was planned for authentication and also updating functions such as username, password and email. However, due to some confusion over the project criteria, it was later determined that update operations must take place on a custom model. For this reason, a re-think on the project scope was required, leading to a new design. The final one used is shown below. 
 
-![Final entity relationship diagram](/docs/images/later-erd.png "Later entity relationship diagram")
+![Final entity relationship diagram](/docs/erd/later-erd.png "Later entity relationship diagram")
 
 The default User model in Django was still used for authentication and updates to the username, password and email were still included as per the original planning ideas. However, the project criteria required create, read, update and delete operations on a custom model and thus a new model was required. The instructions page of the project was thus turned in a superuser editable page via the new Information table. The other models look similar to the original design with only a minor change to the Message model. It was decided that a new field should be added to keep track of the date messages were sent. 
 
@@ -375,15 +379,55 @@ Message: C
 <a id="instructions"></a>
 ## Instructions and Features
 
+After all the design process was finished, the site was implemented over a number of days. The aim was to match the design templates as close as possible, although it was clear that unforeseen issues would mean that some changes would inevitably need to be made. This section will detail the site features while providing instructions on how to use it. Some pages on the site are accessible to non-logged in users while others require a login. The following information details this further:-
 
+- Screens requiring a login: Index, profile, game, change password, logout
+- Screens requiring a login as superuser on the front-end to be fully usable: instructions
+- Screens not requiring a login: Index, instructions, login, register, 
 
+Match Master is fully responsive and it can be used from a minimum size of 320x576 all the way up to a 4K display. For the purposes of this document, we will cover responsiveness for a few screenshots and then focus on a desktop view when explaining the features and the site for brevity. The first two screenshots show the page in both mobile and desktop view. It looks very similiar to the interface design produced in Canva and works similiarly. One difference is that a green bar was added underneath the navbar to see the current user status. It was felt that it wasn't always clear if the user was logged in or not and so a more obvious approach was taken. The text on the footer was also shortened too, as the original was proving difficult to fit in on mobile view.
 
+In mobile view, the navbar is a dropdown menu while it appears persistently on desktop. The same items are displayed though and it is designed as the main means of navigation around the site. This set of screenshots show a user logged in and so "Start Game" is displayed at the bottom. If the user wasn't logged in, "Log In" would be shown instead and it would lead the user to the login page instead of to the game.
 
+![Desktop index page screenshot when signed in](/docs/screenshots/desktop-front-in.png "Desktop index page screenshot when signed in")
+![Mobile index page screenshot when signed in](/docs/screenshots/mobile-front-in.png "Mobile index page screenshot when signed in")
 
+The next screenshots show the game view in both mobile and desktop mode. The game boxes are fully responsive and re-position themselves even if the browser width is changed live. As you can see, the game looks and plays the same in both screen modes. The game is accessible via the "Start Game" button on the index page or the same one on the profile page. The game is played by clicking on two boxes to try and find matching pairs. If you succeed in finding a match, they will remain face-up and the game will wait for you to click more. If the two cards you pick are not a match, they will remain a second before flipping back over. The game continues until all matches have been made by which time you are shown your final score and asked to "End Game". You can restart the game at any time by clicking on the "Restart Game" button while the game is in progress. The live number of rounds played as well as the number of pairs left is shown in the bottom panel too.
 
+![Desktop game page screenshot when signed in](/docs/screenshots/desktop-game-in.png "Desktop game page screenshot when signed in")
+![Mobile game page screenshot when signed in](/docs/screenshots/mobile-game-in.png "Mobile game page screenshot when signed in")
 
+The profile screen is shown next with both mobile and desktop views. This screen is a bit larger though and thus it required three mobile screenshots to show it all. This page shows the profile of the currently shown user followed by two buttons to start a new game or delete your game history. The delete history button requires a further confirmation to ensure no accidental mistakes leads to a loss of long-term game history. Below these buttons, the statistics from the users historical record is shown as well as forms to change their username or email adddress. The password can also be changed by clicking on the button at the bottom.
 
+![Desktop profile page screenshot when signed in](/docs/screenshots/desktop-profile-in.png "Desktop profile page screenshot when signed in")
+![Mobile profile page screenshot when signed in (page 1)](/docs/screenshots/mobile-profile-in-p1.png "Mobile profile page screenshot when signed in (page 1)")
+![Mobile profile page screenshot when signed in (page 2)](/docs/screenshots/mobile-profile-in-p2.png "Mobile profile page screenshot when signed in (page 2)")
+![Mobile profile page screenshot when signed in (page 3)](/docs/screenshots/mobile-profile-in-p3.png "Mobile profile page screenshot when signed in (page 3)")
 
+From this point on, the focus will be on the feature set of the site so only one set of screenshots will be provided. The instruction page is the next one to be demonstrated. This can be seen with two views, one when logged in as a super-user and one at all other times. This is demonstrated in the following screenshots. 
+
+![Desktop instruction page screenshot when signed in as a superuser](/docs/screenshots/desktop-instruction-in.png "Desktop instruction page screenshot when signed in as a superuser")
+![Desktop instruction page screenshot in all other cases (page 1)](/docs/screenshots/desktop-instruction-out-p1.png "Desktop instruction page screenshot in all other cases (page 1)")
+![Desktop instruction page screenshot in all other cases (page 2)](/docs/screenshots/desktop-instruction-out-p2.png "Desktop instruction page screenshot in all other cases (page 2)")
+
+As can be seen in the first screenshot, when a superuser is signed in, small red buttons appear allowing that user to edit or delete instruction records. Pressing the "Edit" button as has been done in the same screenshot will copy the details down to the form below. After editing the details, the superuser can then press Update and the database will be updated with the new information. However, the next screenshot shows the same page where a superuser is not logged in. There are no red buttons on this page and the priority indication, which the superuser can use to set the order of records is missing. The admin form at the bottom to add or edit records is also missing. This page is therefore only fully functional for a superuser to create, edit and delete. A normal or anonymous visitor of the site will only see the instructions as shown. 
+
+The third screenshot shows the last entry in the accordion, a form to send a message to the admin/site creator. This is accessible by all users, even those not logged in and can be used for a variety of reasons, including feedback, password reset requests, queries, etc, etc.
+
+![Modal screenshot when signed in](/docs/screenshots/desktop-modal-in.png "Modal screenshot when signed in")
+
+The screenshot above shows a modal that appears whenever a request to make a deletion is made. This happens in two ways on the site, deleting your game history or deleting an instruction element. Only by pressing yes will the deletion happen. 
+
+The next image shows a central feature of the confirmation process on this website, that an alert message informs the user wherever a database create, update or delete takes place. In this example, the message shows that an instruction element was added. But the same messages appears for all updates on the Game, Information, Message and User models.
+
+![Message screenshot when signed in](/docs/screenshots/desktop-message-in.png "Message screenshot when signed in")
+
+Finally, the website uses the Python module AllAuth to provide user authentication, the ability to change passwords, login and register. All the sites provided by AllAuth have been styled in the theme of this website and are shown in screenshots below. 
+
+![Desktop change password page screenshot when signed in](/docs/screenshots/desktop-change-password-in.png "Desktop change password page screenshot when signed in")
+![Desktop login page screenshot when logged out](/docs/screenshots/desktop-login-out.png "Desktop login page screenshot when logged out")
+![Desktop logout page screenshot when signed in](/docs/screenshots/desktop-logout-in.png "Desktop logout page screenshot when signed in")
+![Desktop register page screenshot when logged out](/docs/screenshots/desktop-register-out.png "Desktop register page screenshot when logged out")
 
 
 

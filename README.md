@@ -440,6 +440,7 @@ The following code tests were carried out:-
     - No errors or warnings
 - CI Python Linter
     - No errors or warnings
+- No Web Content Accessibility Guideline errors
 
 The following manual test procedures were run to ensure the website ran as expected and find any outstanding bugs found:-
 

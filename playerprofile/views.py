@@ -50,7 +50,7 @@ def player_profile_page(request):
             game_entry.save()
             messages.add_message(request, messages.SUCCESS,
                                  'New game record added')
-        elif request.POST.get("form_id") == "username_change":
+        elif request.POST.get("form_id1") == "username_change":
             # A POST request for the username_change form has been detected
             # Form acquired
             form = ChangeUsernameForm(request.POST, request=request)
@@ -66,7 +66,7 @@ def player_profile_page(request):
                 # the user here
                 messages.add_message(
                     request, messages.ERROR, form.non_field_errors()[0])
-        elif request.POST.get("form_id") == "email_change":
+        elif request.POST.get("form_id2") == "email_change":
             # A POST request from the email change form
             form = ChangeEmailForm(request.POST, request=request)
             if form.is_valid():

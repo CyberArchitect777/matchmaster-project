@@ -10,7 +10,7 @@ class ChangeUsernameForm(forms.Form):
     """
     # Creates a hidden HTML form variable designating this as a
     # username change
-    form_id = forms.CharField(
+    form_id1 = forms.CharField(
         widget=forms.HiddenInput(), initial="username_change")
 
     # Standard max_length's in Django AuthUser table
@@ -73,7 +73,7 @@ class ChangeEmailForm(forms.Form):
 
     # Creates a hidden HTML form variable designating this as an email
     # change
-    form_id = forms.CharField(
+    form_id2 = forms.CharField(
         widget=forms.HiddenInput(), initial="email_change")
     # Standard max_length's in Django AuthUser table
     current_account_password = forms.CharField(

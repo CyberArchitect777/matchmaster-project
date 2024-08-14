@@ -11,10 +11,11 @@
 5. [Instructions and Features](#instructions)
 6. [Testing](#project-testing)
 7. [Outcomes / Future Development](#outcomes)
-8. [Project Deployment](#deployment)
-7. [Technical Facts](#technical-facts)
-8. [Locations: Deployment, Repository, Project Board](#locations)
-9. [Credits](#credits)
+8. [Known Issues](#known-issues)
+9. [Project Deployment](#deployment)
+10. [Technical Facts](#technical-facts)
+11. [Locations: Deployment, Repository, Project Board](#locations)
+12. [Credits](#credits)
 
 ## Introduction
 
@@ -428,6 +429,12 @@ Finally, the website uses the Python module AllAuth to provide user authenticati
 <a id="project-testing"></a>
 ## Project Testing
 
+The following code tests were carried out:-
+
+- W3C HTML validation
+    - 
+
+
 The following test procedures were run to ensure the website ran as expected and find any outstanding bugs found:-
 
 - Full site responsive test to see if the site worked successfully down to a minimum of 320px by 576px.
@@ -526,6 +533,11 @@ Beyond this, the could-do items are also possibilities:-
 - Add alternative game modes.
 
 All the tasks not completed in this iteration have been placed in the backlog to be started on the next run. 
+
+<a id="known-issues"></a>
+## Known Issues
+
+
 
 <a id="deployment"></a>
 ## Project Deployment

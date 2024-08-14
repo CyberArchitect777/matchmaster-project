@@ -50,7 +50,7 @@ class ChangeUsernameForm(forms.Form):
                 "You have entered an incorrect password. Please try again.")
         elif username_one != username_two:
             raise forms.ValidationError(
-                "Your username entries do not match."
+                "Your username entries do not match. "
                 "Please make sure they are the same.")
         elif self.request.user.username == username_one:
             raise forms.ValidationError("You already have this username.")
@@ -109,7 +109,7 @@ class ChangeEmailForm(forms.Form):
                 "You have entered an incorrect password. Please try again.")
         elif email_one != email_two:
             raise forms.ValidationError(
-                "Your email entries do not match." 
+                "Your email entries do not match. " 
                 "Please ensure they match before trying again.")
         elif self.request.user.username == email_one:
             raise forms.ValidationError("You already have this email.")

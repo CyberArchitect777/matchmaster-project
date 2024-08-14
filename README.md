@@ -9,14 +9,11 @@
 3. [Agile: Project Planning](#agile)
 4. [Project Design](#design)
 5. [Instructions and Features](#instructions)
-6. [Testing](#testing)
-
-3. Security
-4. [Testing](#testing)
-5. [Future Development](#future)
-6. [Project Deployment](#deployment)
+6. [Testing](#project-testing)
+7. [Outcomes / Future Development](#outcomes)
+8. [Project Deployment](#deployment)
 7. [Technical Facts](#technical-facts)
-8. [Repository and Project Board](#repository)
+8. [Locations: Deployment, Repository, Project Board](#locations)
 9. [Credits](#credits)
 
 ## Introduction
@@ -428,7 +425,8 @@ Finally, the website uses the Python module AllAuth to provide user authenticati
 ![Desktop logout page screenshot when signed in](/docs/screenshots/desktop-logout-in.png "Desktop logout page screenshot when signed in")
 ![Desktop register page screenshot when logged out](/docs/screenshots/desktop-register-out.png "Desktop register page screenshot when logged out")
 
-## Testing
+<a id="project-testing"></a>
+## Project Testing
 
 The following test procedures were run to ensure the website ran as expected and find any outstanding bugs found:-
 
@@ -486,3 +484,163 @@ Memorygame app
 - (Pass) Tried to open more than two boxes at a game in the game and failed
 - (Pass, boxes opened but quickly reset) Tried to restart the game and open boxes while it reset to sabotage the game.
 - (Pass) Tried resetting the game record 
+
+<a id="outcomes"></a>
+## Outcomes / Future Development
+
+Ultimately, the final project at the end of this iteration resulted in all of the must-do items being implemented, but none of the should or could-do items. Despite a strong attempt to stick to what was considered a minimum viable product, the pressure to finish all the must-do items meant too much scope was still placed on this iteration. One potential mistake made on this project was not to seek further clarification on some project criteria earlier on, leading to a change of circumstances later on. However, despite the challenges, the minimum viable product, all of the must-do items were ultimately completed.
+
+This was the final outcome:-
+
+- As a user, I want to play the game for entertainment/memory training
+    - As a user, I was able to play the game for entertainment and memory training as much as I wanted. 
+- As a user, I want to see instructions to determine how to play
+    - As a user, I was able to see instructions if I was logged in or not and understand how to play the game. 
+- As a user, I want to contact the site creator to offer suggestions, provide feedback and raise queries.
+    - As a user, I was able to contact the site creator from the instruction page near the bottom of the page.
+- As a user, I’d like to play the game on whatever device I have
+    - As a user, I was able to play this game on any device bigger than the minimum of 320x576, pretty much any JavaScript capable device in this era.
+- As a user, I’d like to have an account so that my games are tracked over time and I can see my progress.
+    - As a user, I was able to see my games being recorded and my statistics being tracked over time. I was able to view the statistics from the profile page.
+- As a user, I’d like to be able to change my account details.
+    - As a user, I was able to change my username, email and password settings on the website.
+- As a user, I’d like the gameplay to be immediately responsive to my actions so I have an enjoyable playing experience.
+    - As a user, I found the game was very responsive and I received immediate feedback from my actions.
+- As a user, I’d like to be able to reset my password if I can’t remember what it is.
+    - As a user, I am able to contact the site owner and request a password reset. The site made it clear that having an email on the site records was wise for this purpose.
+- As a user, I’d like to clear my game record so I can start again as a new player.
+    - As a user, I was able to clear my game record at any time.
+
+There are numerous areas of possible future development that could be considered. However, based on the Agile methodology, it is clear that the next tasks that should be undertaken in the next iteration is the should-do tasks. These are listed below. 
+
+- Allow the user to change the game difficulty level
+- Implement a leaderboard system
+
+Beyond this, the could-do items are also possibilities:-
+
+- Change content of hidden and visible cards
+- Change background image and site colour scheme
+- Add sound effects
+- Music
+- Allow the user to have a profile avatar, perhaps in combination with the leaderboard.
+- Add alternative game modes.
+
+All the tasks not completed in this iteration have been placed in the backlog to be started on the next run. 
+
+<a id="deployment"></a>
+## Project Deployment
+
+Match Master was deployed to Heroku as a project early on in the development. The following information is what I used to achieve this. 
+
+Setting up a fresh project
+
+- pip3 install django
+- django-admin startproject matchmaster .
+- python3 manage.py startapp index
+- python3 manage.py runserver
+- Make sure the local environment is added to ALLOWED_HOST in settings.py
+- Check the project works
+
+Setting up the index page
+
+- Add to the urls.py codebase in the project directory before doing the same with views.py
+- A basic message should be displayed on your local environment.
+
+Deploy to Heroku
+
+- Create a new project on Heroku. After that, go to the settings tab and reveal config vars. Add a key of DISABLE_COLLECTSTATIC and a value of 1 before clicking Add.
+
+In GitPod
+
+- pip3 install gunicorn
+- pip3 freeze --local > requirements.txt
+- echo "web: gunicorn matchmaster.wsgi" > Procfile
+- Set DEBUG to False in settings.py and also add ’.herokuapp.com’ to ALLOWED_HOSTS
+- Commit and push to GitHub
+
+In Heroku
+- Go to the Deploy tab for this created project.
+- In the deployment method, select GitHub
+- Find the matchmaster repository and select it.
+- Deploy branch to start a manual deployment of the main branch.
+- Click on open app to view the deployed project.
+- Open resources and choose an eco dyno, a lightweight container.
+- Verify that there is no existing Postgres database add-on. If there is one, you can destroy it, otherwise the costs can be significant.
+
+Local environment
+
+- Set DEBUG to True
+- env.py: Fill out the file to set an environment variable called DATABASE_URL to the database that is being used. 
+- Add env.py to .gitignore
+- pip3 install dj-database-url psycopg2
+- pip3 freeze --local > requirements.txt
+- Import the following code into matchmaster/settings.py: 
+
+import os
+import dj_database_url
+if os.path.isfile('env.py'):
+	import env
+
+- Set up the database link in settings.py to read from env.py locally or from the DATABASE_URL environment variable on Heroku
+- Run python3 manage.py migrate
+- python3 manage.py createsuperuser # Choose a username, email and password for super user access to Django
+- Git commit and push again and re-deploy the project on Heroku
+
+Heroku
+
+- Finally make sure again that there are no database addons on Heroku and that the DATABASE_URL has been set correctly.
+
+Final steps
+
+- DEBUG should be off on deployment, or a method found to automatically switch it off as it has been done in this project.
+- No secret information nominally found in env.py or environment variables should be exposed onto public respositories or websites.
+
+<a id="technical-facts"></a>
+## Technical Facts
+
+Technologies used:
+
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+- Python
+- Django
+
+Python/Django libraries used (directly loaded):
+
+- Cloudinary
+- Crispy-bootstrap5
+- Dj-database-url
+- Django-allauth
+- Django-crispy-forms
+- Gunicorn
+- Psycopg
+- Whitenoise
+
+Tools
+
+- Slack (for communications)
+- Canva (for wireframing, design and images)
+- SmartDraw (for entity-relationship mapping)
+- Diagram.net (for entity-relationship mapping, interface flow chart)
+- Google Documents (for project planning)
+- GitHub Projects (for project management)
+- ChatGPT (mainly for code technique advice)
+- Websites Online, like Stack Overflow and Django's online documentation (for code advice/reference)
+
+<a id="locations"></a>
+## Locations: Deployment, Repository, Project Board
+
+- GitHub repository - https://github.com/CyberArchitect777/matchmaster-project
+- GitHub project board - https://github.com/users/CyberArchitect777/projects/10
+- GitHub deployed website - https://matchmaster-project-18732b4416f9.herokuapp.com/
+
+<a id="credits"></a>
+## Credits
+
+- Canva for all image resources used in creating the website
+- Tutors and fellow students who are part of this bootcamp programme.
+
+Photo
+- Photo by <a href="https://unsplash.com/@nampoh?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Maxim Hopman</a> on <a href="https://unsplash.com/photos/people-playing-soccer-on-green-field-during-daytime-xyDkHkvDYp4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>

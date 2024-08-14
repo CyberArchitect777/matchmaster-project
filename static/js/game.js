@@ -91,9 +91,9 @@ function calculateCardSize() {
      * 
      */
 
-    if (document.documentElement.clientWidth < 381) {
+    if (document.documentElement.clientWidth < 479) {
         return "60px";
-    } else if ((document.documentElement.clientWidth > 380) && (document.documentElement.clientWidth < 771)) {
+    } else if ((document.documentElement.clientWidth > 478) && (document.documentElement.clientWidth < 771)) {
         return "80px";
     } else if ((document.documentElement.clientWidth > 770) && (document.documentElement.clientWidth < 991)) {
         return "100px";

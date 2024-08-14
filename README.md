@@ -2,7 +2,7 @@
 ## By Barrie Millar
 ### A Themed Memory Card Matching Game
 
-# Table of Contents
+## Table of Contents
 
 1. [Introduction](#introduction)
 2. [Project Goals](#goals)
@@ -218,7 +218,14 @@ Won't do:
 
 ### Project Management
 
-With the user stories completed, a decision had to be made on how the project would be managed. It was decided that a GitHub project board would be used to develop the project. Thus, the first stage was to map the user stories onto the project board. The links to both the board and the user stories can be seen below.
+With the user stories completed, a decision had to be made on how the project would be managed. It was decided that a GitHub project board would be used to develop the project. Four sections were opened on the board. These were as follows: 
+
+- Backlog - To store any user stories not completed. This is inevitable given the scale of the project and the resources available. 
+- Todo - Things that should be done in this iteration
+- In Progress - Things that are currently being worked on.
+- Done - Things that have been completed.
+
+The next stage was to map the user stories onto the project board. The links to both the board and the user stories can be seen below.
 
 [GitHub Project Board](https://github.com/users/CyberArchitect777/projects/10)
 
@@ -355,6 +362,15 @@ Although the Entity-Relationship-Diagram charts show the relations graphically, 
 One User plays many Games
 One GameType appears in many Games
 One User can create/edit much Information
+
+#### CRUD (Create, Read, Update, Delete) functionality
+
+The realities of the project means that not all models have full CRUD functionality. The exact operations possible on each model is shown below.
+
+User: CRUD (Most via AllAuth, update manually too)
+Game: CRD
+Information: CRUD (All custom)
+Message: C
 
 <a id="instructions"></a>
 ## Instructions and Features

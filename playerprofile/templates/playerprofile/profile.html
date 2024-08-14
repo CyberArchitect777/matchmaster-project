@@ -38,9 +38,9 @@
     <div class="row">
         <section class="pt-3 pb-2 col-12 blackbox">
             <!-- Provides statistics as calculated by the views.py file -->
-            <h3>Difficulty: 18 Boxes:</h3>
+            <h3>Difficulty: 18 Boxes</h3>
             <p>Games completed: {{ results_games }}</p>
-            <p>Average rounds required to win: {{ results_average }}</p>
+            <p>Average rounds required to win: {{ results_average|floatformat:2 }}<p>
             <p>Least rounds required to win: {{ results_least }}</p>
             <p>Most rounds required to win: {{ results_most }}</p>
         </section>

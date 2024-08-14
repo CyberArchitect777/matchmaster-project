@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import Information
 from .forms import ManipulateInformation, MessageAdmin
 
+
 def contact_admin(request):
     """
     Processes form POST data to add a message to the Message model.
@@ -14,13 +15,14 @@ def contact_admin(request):
             contact_admin_form.save()
             # If form is valid, save and send a message.
             messages.add_message(request, messages.SUCCESS,
- 	            'Message sent to admin')
+                                 'Message sent to admin')
         else:
             # if not, flag an error
             messages.add_message(request, messages.ERROR,
- 	            'Message could not be sent to admin')
+                                 'Message could not be sent to admin')
     # re-load instruction page.
     return redirect("instruction")
+
 
 def delete_instruction(request, delete_id):
     """
@@ -32,8 +34,9 @@ def delete_instruction(request, delete_id):
     instruction = Information.objects.filter(id=delete_id)
     instruction.delete()
     messages.add_message(request, messages.SUCCESS,
- 	            'Instruction element deleted')
+                         'Instruction element deleted')
     return redirect("instruction")
+
 
 def display_instruction_page(request):
     """
@@ -42,7 +45,7 @@ def display_instruction_page(request):
 
     if request.method == "POST":
         print(request.POST)
-        # Check to see if the information being sent comes from a 
+        # Check to see if the information being sent comes from a
         # specific form, identified by a hidden field on it.
         if request.POST.get("form_id") == "add_instruction":
             information_form = ManipulateInformation(request.POST)
@@ -58,41 +61,43 @@ def display_instruction_page(request):
                 information_object.update_author = request.user
                 information_object.save()
                 messages.add_message(request, messages.SUCCESS,
- 	            'Instruction element created')
+                                     'Instruction element created')
             else:
                 # Form data was not valid for some reason and thus
                 # this error was shown
-                messages.add_message(request, messages.ERROR,
- 	            'Instruction element could not be created')
+                messages.add_message(
+                    request, messages.ERROR,
+                    'Instruction element could not be created')
         elif request.POST.get("form_id") == "edit_information":
-            # Select the actual record from the Information model that is 
+            # Select the actual record from the Information model that is
             # required for edit
             information_form = ManipulateInformation(
                 request.POST, instance=Information.objects.get(
                     id=request.POST.get("element_id")))
             if information_form.is_valid():
-                 # Remove data not found in the model and is thus
-                 # unnecessary at this point as before.
+                # Remove data not found in the model and is thus
+                # unnecessary at this point as before.
                 information_form.cleaned_data.pop('form_id', None)
                 information_form.cleaned_data.pop('element_id', None)
                 information_object = information_form.save(commit=False)
                 information_object.update_author = request.user
                 information_object.save()
                 messages.add_message(request, messages.SUCCESS,
- 	            'Instruction element updated')
+                                     'Instruction element updated')
             else:
-                messages.add_message(request, messages.ERROR,
- 	            'Instruction element could not be updated')
+                messages.add_message(
+                    request, messages.ERROR,
+                    'Instruction element could not be updated')
         return redirect("instruction")
-    else: # Pursue this if no form data has been passed
+    else:  # Pursue this if no form data has been passed
         information_form = ManipulateInformation()
         message_admin_form = MessageAdmin()
 
     # Sort Information model content by priority for viewing
     information_list = Information.objects.all().order_by('priority')
-    
+
     return render(
-	    request,
+        request,
         "instruction/instruction.html", {
             "information_list": information_list,
             "information_form": information_form,

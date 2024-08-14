@@ -2,6 +2,7 @@ from django import forms
 from django.contrib import messages
 from index.models import User
 
+
 class ChangeUsernameForm(forms.Form):
     """
         Allows the changing of the current username via a Django form
@@ -11,7 +12,7 @@ class ChangeUsernameForm(forms.Form):
     # username change
     form_id = forms.CharField(
         widget=forms.HiddenInput(), initial="username_change")
-    
+
     # Standard max_length's in Django AuthUser table
     current_password = forms.CharField(
         max_length=128, widget=forms.PasswordInput, required=True)
@@ -22,7 +23,7 @@ class ChangeUsernameForm(forms.Form):
         """
             Class initialisation/constructor
         """
-        
+
         # request variable pulled from the initialisation parameters.
         self.request = kwargs.pop("request", None)
         super(ChangeUsernameForm, self).__init__(*args, **kwargs)
@@ -35,7 +36,7 @@ class ChangeUsernameForm(forms.Form):
             Automatically called during validation by Django if
             called "clean". Completing manual validation on the
             form.
-        """    
+        """
         # Calls Django's default validation process from the inherited class.
         cleaned_data = super().clean()
         # Acquiring the variables from the cleaned data
@@ -61,7 +62,8 @@ class ChangeUsernameForm(forms.Form):
             if User.objects.filter(username=username_one).count() > 0:
                 raise forms.ValidationError(
                     "This username is already in use by another account.")
-        return cleaned_data # Return validated data
+        return cleaned_data  # Return validated data
+
 
 class ChangeEmailForm(forms.Form):
     """
@@ -76,7 +78,7 @@ class ChangeEmailForm(forms.Form):
     # Standard max_length's in Django AuthUser table
     current_account_password = forms.CharField(
         max_length=128, widget=forms.PasswordInput, required=True)
-    email_one = forms.EmailField(max_length=254, required=True) 
+    email_one = forms.EmailField(max_length=254, required=True)
     email_two = forms.EmailField(max_length=254, required=True)
 
     def __init__(self, *args, **kwargs):
@@ -95,7 +97,7 @@ class ChangeEmailForm(forms.Form):
             called "clean". Completing manual validation on the
             form.
         """
-        # Calling the initial Django validation 
+        # Calling the initial Django validation
         # process from the inherited class
         cleaned_data = super().clean()
         current_account_password = cleaned_data.get(
@@ -109,7 +111,7 @@ class ChangeEmailForm(forms.Form):
                 "You have entered an incorrect password. Please try again.")
         elif email_one != email_two:
             raise forms.ValidationError(
-                "Your email entries do not match. " 
+                "Your email entries do not match. "
                 "Please ensure they match before trying again.")
         elif self.request.user.email == email_one:
             raise forms.ValidationError("You already have this email.")
@@ -117,4 +119,4 @@ class ChangeEmailForm(forms.Form):
             if User.objects.filter(username=email_one).count() > 0:
                 raise forms.ValidationError(
                     "This email is already in use by another account.")
-        return cleaned_data # Return validated data
+        return cleaned_data  # Return validated data

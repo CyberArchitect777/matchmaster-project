@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# The textual description assigned to the active variable in 
+# The textual description assigned to the active variable in
 # :model:'instruction.Information'
-ACTIVE_DISPLAY = ((0, "Hidden"), (1, "Shown")) 
+ACTIVE_DISPLAY = ((0, "Hidden"), (1, "Shown"))
+
 
 class Information(models.Model):
     """
@@ -14,28 +15,30 @@ class Information(models.Model):
         Related to the Django User model
     """
 
-    # One to many relationship between users and information. Author who made the last update
+    # One to many relationship between users and information.
+    # Author who made the last update
     update_author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="author_information", 
+        User, on_delete=models.CASCADE, related_name="author_information",
         blank=False, null=False)
     title = models.CharField(
         max_length=200, blank=False, null=False, unique=True)
     content = models.TextField(blank=False, null=False)
 
     # Date and time the entry was last updated
-    updated_on = models.DateTimeField(auto_now=True, blank=False, null=False) 
-    
+    updated_on = models.DateTimeField(auto_now=True, blank=False, null=False)
+
     # If the entry should be displayed or not.
     active = models.IntegerField(
-        choices=ACTIVE_DISPLAY, default=1, blank=False, null=False) 
+        choices=ACTIVE_DISPLAY, default=1, blank=False, null=False)
 
     # Allows the ordering of elements by assigning a priority.
     priority = models.IntegerField(
-        default=1, blank=False, null=False, 
-        verbose_name="Priority Display Order") 
+        default=1, blank=False, null=False,
+        verbose_name="Priority Display Order")
 
-    def __str__(self): # Provides a human readable string for this model.
+    def __str__(self):  # Provides a human readable string for this model.
         return str(self.title)
+
 
 class Message(models.Model):
     """
@@ -48,4 +51,4 @@ class Message(models.Model):
     sender_message = models.TextField(blank=False, null=False)
 
     # Date and time the message was sent
-    sent_on = models.DateTimeField(auto_now=True) 
+    sent_on = models.DateTimeField(auto_now=True)

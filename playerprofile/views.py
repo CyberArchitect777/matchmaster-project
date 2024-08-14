@@ -5,6 +5,7 @@ from .forms import ChangeUsernameForm, ChangeEmailForm
 
 # Create your views here.
 
+
 def delete_game_history(request):
     """
     Fully delete the player's game history
@@ -14,9 +15,10 @@ def delete_game_history(request):
     # Process the delete and notify the user
     current_player_games.delete()
     messages.add_message(request, messages.SUCCESS,
- 	'User game history deleted')
+                         'User game history deleted')
     # Reload the player profile page
     return redirect("playerprofile")
+
 
 def player_profile_page(request):
     """
@@ -34,20 +36,20 @@ def player_profile_page(request):
     if request.method == "POST":
         # Check which form is being used
         if request.POST.get("form_id") == "game_complete":
-            # Set which game type is used in this game. This would be 
-            # variable if should-do tasks had been completed, but 
+            # Set which game type is used in this game. This would be
+            # variable if should-do tasks had been completed, but
             # the first is added by default as the only one available
             # at this point.
             game_type = GameType.objects.first()
             # Acquire the game score
             rounds_taken = request.POST.get("rounds-taken")
             game_entry = Game(
-                game_player=request.user, game_type_setting=game_type, 
+                game_player=request.user, game_type_setting=game_type,
                 rounds_to_complete=rounds_taken)
             # Save the game record and notify the user
             game_entry.save()
             messages.add_message(request, messages.SUCCESS,
- 	            'New game record added')
+                                 'New game record added')
         elif request.POST.get("form_id") == "username_change":
             # A POST request for the username_change form has been detected
             # Form acquired
@@ -58,7 +60,7 @@ def player_profile_page(request):
                 request.user.username = form.cleaned_data["username_one"]
                 request.user.save()
                 messages.add_message(request, messages.SUCCESS,
- 	            'Username updated')
+                                     'Username updated')
             else:
                 # If a problems is detected, the error message is sent to
                 # the user here
@@ -73,17 +75,17 @@ def player_profile_page(request):
                 request.user.email = form.cleaned_data["email_one"]
                 request.user.save()
                 messages.add_message(request, messages.SUCCESS,
- 	            'Email updated')
+                                     'Email updated')
             else:
                 # If a problem is detected, the error message is sent to
                 # the user here
                 messages.add_message(
                     request, messages.ERROR, form.non_field_errors()[0])
-    
+
     # Create the forms here for display on a template.
     username_change_form = ChangeUsernameForm(request=request)
     email_change_form = ChangeEmailForm(request=request)
-    
+
     # Construct statistics from the Game model to display in the view
     queryset = Game.objects.filter(game_player=request.user)
     games_count = (Game.objects.filter(game_player=request.user)).count()
@@ -112,7 +114,7 @@ def player_profile_page(request):
         results_average = round(results_average, 2)
 
     return render(
-	    request,
+        request,
         "playerprofile/profile.html", {
             "results_games": games_count,
             "results_average": results_average,

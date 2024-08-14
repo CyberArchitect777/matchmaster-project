@@ -9,7 +9,7 @@ function drawGameBoard() {
 
     for (let x=0;x<memoryGameData.totalBoxNumber;x++) {
         let gameBox = document.createElement("img");
-        gameBox.classList.add("gamebox")
+        gameBox.classList.add("gamebox");
         gameBox.src = memoryGameData.faceDownImage[0];
         gameBox.alt = memoryGameData.faceDownImage[1];
         gameBox.style.width = calculateCardSize();
@@ -199,7 +199,7 @@ function endGameButtonPressed() {
     gameTypeSetting.value = 1; 
     hiddenForm.appendChild(gameTypeSetting);
     const formId = document.createElement("input");
-    formId.type = "hidden"
+    formId.type = "hidden";
     formId.name = "form_id";
     formId.value = "game_complete"; // Resorted to Django names for style merger
     hiddenForm.appendChild(formId);
@@ -246,9 +246,9 @@ function endGame() {
     // Hide the game screen and show the final score one
 
     document.getElementById("gamepanel-id").classList.add("hide");
-    document.getElementById("gamepanel-id").setAttribute("aria-hidden", "true")
+    document.getElementById("gamepanel-id").setAttribute("aria-hidden", "true");
     document.getElementById("scorepanel-id").classList.remove("hide");
-    document.getElementById("scorepanel-id").setAttribute("aria-hidden", "false")
+    document.getElementById("scorepanel-id").setAttribute("aria-hidden", "false");
 }
 
 function preloadImages() {
@@ -279,10 +279,10 @@ function handleKeyPlay(event) {
     } else { // Make decisions based on what key is pressed
         switch(event.key) {
             case "Enter":
-                handleInput("box" + memoryGameData.keyboardPosition)
+                handleInput("box" + memoryGameData.keyboardPosition);
                 break;
             case " ":
-                handleInput("box" + memoryGameData.keyboardPosition)
+                handleInput("box" + memoryGameData.keyboardPosition);
                 break;
             case "ArrowLeft":
                 if (memoryGameData.keyboardPosition > 0) {

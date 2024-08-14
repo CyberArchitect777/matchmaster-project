@@ -1,7 +1,7 @@
 
 // Array of all edit buttons on the instruction view
 // Linked to the amount of information items on the accordian.
-let allButtons = document.querySelectorAll(".edit-button")
+let allButtons = document.querySelectorAll(".edit-button");
 
 for (let x=0;x<allButtons.length;x++) {
     allButtons[x].addEventListener("click", fillCommentForEdit);
@@ -19,7 +19,7 @@ function fillCommentForEdit(event) {
     const title = document.getElementById("id_title");
     const content = document.getElementById("id_content");
     const active = document.getElementById("id_active");
-    const priority = document.getElementById("id_priority")
+    const priority = document.getElementById("id_priority");
     title.value = document.getElementById("infotitle" + numberSelected).innerText;
     content.value = document.getElementById("infocontent" + numberSelected).innerText;
     

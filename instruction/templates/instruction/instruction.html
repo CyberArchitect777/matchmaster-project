@@ -19,7 +19,7 @@
                         <button class="accordion-button {% if forloop.counter != 1 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse{{ list_item.id }}" aria-expanded="{% if forloop.counter != 1 %}false{% else %}true{% endif %}"
                             aria-controls="collapse{{ list_item.id }}">
-                            <p id="infotitle{{ list_item.id }}">{{ list_item.title }}</p>
+                            <span id="infotitle{{ list_item.id }}">{{ list_item.title }}</span>
                         </button>
                     </h2>
                     <div id="collapse{{ list_item.id }}" class="accordion-collapse collapse {% if forloop.counter == 1 %}show{% endif %}"

@@ -8,6 +8,8 @@
 2. [Project Goals](#goals)
 3. [Agile: Project Planning](#agile)
 4. [Project Design](#design)
+5. [Instructions and Features](#instructions)
+
 3. Security
 2. [Instructions and Features](#instructions)
 3. [Development Considerations](#development)
@@ -225,27 +227,41 @@ User stories:
 In keeping with the MoSCoW prioritsation, the user story was given priorities on the board. Must-do stories were assigned a priority of P0 and can be found below.
 
 [Play the game](https://github.com/CyberArchitect777/matchmaster-project/issues/2)
+
 [Access documentation](https://github.com/CyberArchitect777/matchmaster-project/issues/3)
+
 [Contact site creator](https://github.com/CyberArchitect777/matchmaster-project/issues/4)
+
 [Play on multiple devices](https://github.com/CyberArchitect777/matchmaster-project/issues/5)
+
 [Game user account management](https://github.com/CyberArchitect777/matchmaster-project/issues/6)
+
 [Change account details](https://github.com/CyberArchitect777/matchmaster-project/issues/11)
+
 [Gameplay interactions are immediately responsive](https://github.com/CyberArchitect777/matchmaster-project/issues/12)
+
 [Reset password](https://github.com/CyberArchitect777/matchmaster-project/issues/13)
+
 [Delete game record](https://github.com/CyberArchitect777/matchmaster-project/issues/18)
 
 Should-do stories were assigned a priority of P1:
 
 [Change game difficulty level](https://github.com/CyberArchitect777/matchmaster-project/issues/7)
+
 [View leaderboard](https://github.com/CyberArchitect777/matchmaster-project/issues/10)
 
 Could-do stories were assigned a priority of P2:
 
 [Change content of hidden and visible cards](https://github.com/CyberArchitect777/matchmaster-project/issues/8)
+
 [Change background image and site colour scheme](https://github.com/CyberArchitect777/matchmaster-project/issues/9)
+
 [Sound effects](https://github.com/CyberArchitect777/matchmaster-project/issues/14)
+
 [Music](https://github.com/CyberArchitect777/matchmaster-project/issues/15)
+
 [User profile avatar](https://github.com/CyberArchitect777/matchmaster-project/issues/16)
+
 [Change game modes](https://github.com/CyberArchitect777/matchmaster-project/issues/17)
 
 Won't-do stories were not added to the board as there is no plan to implement them for the foreseeable future.
@@ -255,7 +271,9 @@ All the links to the user stories above contain titles, user stories and accepta
 <a id="design"></a>
 ## Project Design
 
-Some initial consideration was given to the name of the project. Eventually, a decision was made to go with "Match Master" which flows nicely and has a symbolic refernce to matching and also being good at something. It was decided early on that this would be a themed project to make the game more visually focused and stylish. After past experiences using abstract wireframe models and seeing the effects of a graphical design tool in a previous hackathon, it was decided that more detailed wireframing would be utilised on this occasion. Canva was the site of choice for this and several models of how the site may look were designed.
+Some initial consideration was given to the name of the project. Eventually, a decision was made to go with "Match Master" which flows nicely and has a symbolic refernce to matching and also being good at something. It was decided early on that this would be a themed project to make the game more visually focused and stylish. After past experiences using abstract wireframe models and seeing the effects of a graphical design tool in a previous hackathon, it was decided that more detailed wireframing would be utilised on this occasion. Canva was the site of choice for this and several models of how the site may look were designed. This is shown in the next section.
+
+### Interface design
 
 A sketch of the front page was created and can be seen below. It looks very much like the site as it was finally created.
 
@@ -267,7 +285,89 @@ The design carried an attractive front-end splash screen with a green themed int
 
 A mockup of a mobile phone version was also created at a minimum 320x576 size. It can be seen that the mobile version looks like a smaller version of the desktop. However, the hidden nav bar means that it was necessary to demonstrate more clearly what the user account status was. This was designed in for this version.
 
-![Front page on mobile ed in](/docs/images/mobile-front-out.png "Front page on desktop when signed in")
+![Front page on mobile when signed out](/docs/images/mobile-front-out.png "Front page on mobile when signed out")
+
+Two designs from Canva are shown below depicting the login screen on desktop and on mobile. These are also quite similiar to the actual implementation ultimately, although there are slight differences. 
+
+![Login page on mobile when signed out](/docs/images/mobile-login-out.png "Login page on mobile when signed out")
+![Login page on desktop when signed out](/docs/images/desktop-login-out.png "Login page on desktop when signed out")
+
+The next design shows how the game was envisied at the start. The plan was to eliminate all other elements from the screen and free up as much space as possible for the game cards. It was thought at the time that space might be a big problem on smaller devices for the game, although this turned out to be less of an issue than expected.
+
+![Game page on desktop when signed in](/docs/images/desktop-game-in.png "Game page on desktop when signed in")
+
+The profile page on desktop was clearly going to be a more crowded space with all the components that needed to go into it, so the design originally showed a three column display on large screens. In hindsight, the difficulty panels should have been combined with a carousel component to create a scrolling pane, but this seemed to work fine given the space available. 
+
+![Profile page on desktop when signed in](/docs/images/desktop-profile-in.png "Profile page on desktop when signed in")
+
+On mobile, there is less space available. It was envisaged therefore that pages would have a scrolling design to fit all the content in. The two screenshots below show the page as it is scrolled on mobile.
+
+![First profile page on mobile when signed in](/docs/images/mobile-profile-in-p1.png "First profile page on mobile when signed in")
+![Second profile page on mobile when signed in](/docs/images/mobile-profile-in-p2.png "Second profile page on mobile when signed in")
+
+Finally, the mockup designs of the register and instruction pages are shown, desktop only this time. The site theme and layout were quite consistent from page to page in general, colourful, but also embodying the idea of consistency and functionality found in modern web applications
+
+![Register page on desktop when signed out](/docs/images/desktop-register-out.png "Register page on desktop when signed out")
+![Instructions page on desktop when signed out](/docs/images/desktop-instructions-out.png "Instructions page on desktop when signed out")
+
+### Database Design
+
+As a full-stack data-driven web application, a database was required to store data from session to session. For this project, a PostgrlSQL database server was used as provided by Code Institute. Using the Django framework, the first step was to create some models to store data. After some thought, the following design decisions were made as can be seen from this early entity relationship diagram. 
+
+![Early entity relationship diagram](/docs/images/early-erd.png "Early entity relationship diagram")
+
+The AutoField entries in each table are auto-generated by Django and are primary keys. The User model is a Django default table and the use of it was planned for authentication and also updating functions such as username, password and email. However, due to some confusion over the project criteria, it was later determined that update operations must take place on a custom model. For this reason, a re-think on the project scope was required, leading to a new design. The final one used is shown below. 
+
+![Final entity relationship diagram](/docs/images/later-erd.png "Later entity relationship diagram")
+
+The default User model in Django was still used for authentication and updates to the username, password and email were still included as per the original planning ideas. However, the project criteria required create, read, update and delete operations on a custom model and thus a new model was required. The instructions page of the project was thus turned in a superuser editable page via the new Information table. The other models look similar to the original design with only a minor change to the Message model. It was decided that a new field should be added to keep track of the date messages were sent. 
+
+#### Models
+
+##### User model
+
+The user model as stated previously is a Django default model and is used for authentication for the most part. There is also user support for editing the username, email and password, the first two by custom design in this project and the third by the AllAuth Django module.
+
+##### Game model
+
+This is the main model that stores game results. It is linked to the User model to store the player who plays each game and also to the GameType model to store the type of game that was being played.
+
+##### GameType model
+
+This small table presently only stores the amount of boxes in each game, effectively a difficulty setting. It would also likely store a game type setting if different game modes were implemented. By the end of the project however, it became clear that implementing new game modes and difficulty levels (could-do and should-do) tasks was unachievable in the time available. For this reason, it would have been possible to delete this model and store the total boxes in the Game model. However, this would have limited expansion room in the game and additionally led to a re-design if the difficulty should-do tasks had been completed. Therefore, it makes sense to have this small table for future expansion. 
+
+##### Information model
+
+This model stores all information displayed on the Instructions page apart from the Contact Admin form. This is the only model in the project that supports full create-read-update and delete functionality via the front-end. It is accessible by superuser only for create, update and delete operations. The non-privileged user is then allowed to read the instructions, even if not logged in. The "active" field is in place to allow the superuser to remove the content from the instruction page without deleting it. The "priority" field allows the superuser to sort the posts into an order they want.
+
+##### Message models
+
+The Messages model stores messages that are sent by the user for admin review. The field names are fairly self-explanatory so little explanation is needed. 
+
+#### Field types
+
+An attempt was made to make reasonable decisions regarding field names. Most of them are straightforward choices and require no extensive consideration. The character field lengths were largely set to sensible limits or were based on the User model defaults. So the Message.sender_name field for instance is 300 characters for a full name. The User model has a first and surname of 150 characters each and thus a figure of 300 was reached for the combined name. 
+
+#### Model relationships
+
+Although the Entity-Relationship-Diagram charts show the relations graphically, the following details textually what they are. 
+
+One User plays many Games
+One GameType appears in many Games
+One User can create/edit much Information
+
+<a id="instructions"></a>
+## Instructions and Features
+
+
+
+
+
+
+
+
+
+
 
 
 

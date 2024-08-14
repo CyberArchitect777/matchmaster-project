@@ -45,7 +45,7 @@ class Message(models.Model):
     sender_name = models.CharField(max_length=300, blank=False, null=False)
     sender_email = models.EmailField(blank=False, null=False)
     sender_title = models.CharField(max_length=200, blank=False, null=False)
-    sender_message = models.TextField()
+    sender_message = models.TextField(blank=False, null=False)
 
     # Date and time the message was sent
     sent_on = models.DateTimeField(auto_now=True) 

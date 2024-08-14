@@ -27,7 +27,7 @@
         <!-- Bootstrap navbar adapted with DTL-->
         <nav class="navbar navbar-expand-sm">
             <div class="container">
-                <a class="navbar-brand {% if request.path == '/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'index' %}">Match Master</a>
+                <a class="navbar-brand {% if request.path == '/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'index' %}" aria-label="Go to index page">Match Master</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -38,21 +38,21 @@
                         <!-- Different menu options offered depending opn authentication status -->
                         {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == '/playerprofile/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'playerprofile' %}">Profile</a>
+                                <a class="nav-link {% if request.path == '/playerprofile/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'playerprofile' %}" aria-label="Go to the profile page">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == '/accounts/logout/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'account_logout' %}">Logout</a>
+                                <a class="nav-link {% if request.path == '/accounts/logout/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'account_logout' %}" aria-label="Go to the logout page">Logout</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == '/accounts/login/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'account_login' %}">Login</a>
+                                <a class="nav-link {% if request.path == '/accounts/login/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'account_login' %}" aria-label="Go to the login page">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == '/accounts/signup/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'account_signup' %}">Register</a>
+                                <a class="nav-link {% if request.path == '/accounts/signup/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'account_signup' %}" aria-label="Go to the register page">Register</a>
                             </li>
                         {% endif %}
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/instruction/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'instruction' %}">Instructions</a>
+                            <a class="nav-link {% if request.path == '/instruction/' %} {{ 'navbar-currentpage' }} {% endif %}" href="{% url 'instruction' %}" aria-label="Go to the instructions page">Instructions</a>
                         </li>
                     </ul>
                 </div>

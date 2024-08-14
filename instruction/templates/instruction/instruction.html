@@ -28,8 +28,8 @@
                         <!-- This section restricts access to edit and delete for superusers only -->
                         <div class="d-flex align-items-center mt-4 mb-3">
                             {% if user.is_superuser %} <!-- A model is used to confirm delete -->
-                                <a id="editbutton{{ list_item.id }}" class="me-auto edit-button" href="#instruction-form"><p class="small-button fs-6">Edit</p></a>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#delete-modal{{ list_item.id }}"><p id="deletebutton{{ list_item.id }}" class="small-button fs-6 ms-auto">Delete</p></a>
+                                <a id="editbutton{{ list_item.id }}" class="me-auto edit-button" href="#instruction-form" aria-label="Edit the current element in the form at the bottom of the page"><p class="small-button fs-6">Edit</p></a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#delete-modal{{ list_item.id }}" aria-label="Deletes the current element shown"><p id="deletebutton{{ list_item.id }}" class="small-button fs-6 ms-auto">Delete</p></a>
                             {% endif %}
                         </div>
                         <!-- Display priority of messages for superuser only -->
@@ -93,7 +93,7 @@
         <div id="instruction-form" class="admin-change mt-4 py-4">
             <h3>Create/edit a new information section (admin only)</h3>
             {% load crispy_forms_tags %}
-            <form class="crispy-form" method="POST">
+            <form class="crispy-form" method="POST" aria-label="Form for adding or editing information as admin">
                 <!-- Specify the sending form and also the selected element for editing -->
                 <input type="hidden" id="form_id" name="form_id" value="add_instruction">
                 <input type="hidden" id="element_id" name="element_id" value="">

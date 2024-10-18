@@ -16,3 +16,4 @@ A tag and a branch have been created for this project with the label of v1.0 and
 
 - Added new maintenance documentation in README.md to explain future updates. The original document was moved to README-MatchMaster.md.
 - Added files to .gitignore to ignore more local workspace content. This is to facilitate development on Docker as well as the original GitPod.
+- Added Dockerfile and changed access settings to allow local Docker development

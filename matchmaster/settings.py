@@ -40,10 +40,10 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 
 if os.environ.get("DJANGO_DEBUG", "False") == "True":
 	ALLOWED_HOSTS = [ "localhost", ]
-	CSRF_TRUSTED_ORIGINS = [ "localhost" ]
+	CSRF_TRUSTED_ORIGINS = [ "http://localhost" ]
 else:
 	ALLOWED_HOSTS = [ ".herokuapp.com", ]
-	CSRF_TRUSTED_ORIGINS = [ ".herokuapp.com" ]
+	CSRF_TRUSTED_ORIGINS = [ "https://*.herokuapp.com" ]
 
 # Application definition
 

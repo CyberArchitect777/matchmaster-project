@@ -38,9 +38,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = [ ".herokuapp.com", "8000-cyberarchit-matchmaster-zvt3uty4ugg.ws.codeinstitute-ide.net" ]
-
-CSRF_TRUSTED_ORIGINS = [ 'https://*.codeinstitute-ide.net', 'https://*.herokuapp.com' ]
+if os.environ.get("DJANGO_DEBUG", "False") == "True":
+	ALLOWED_HOSTS = [ "localhost", ]
+	CSRF_TRUSTED_ORIGINS = [ "localhost" ]
+else:
+	ALLOWED_HOSTS = [ ".herokuapp.com", ]
+	CSRF_TRUSTED_ORIGINS = [ ".herokuapp.com" ]
 
 # Application definition
 

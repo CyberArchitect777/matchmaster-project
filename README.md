@@ -12,6 +12,11 @@ Match Master is a full stack project and thus depends on backend elements to rem
 
 A tag and a branch have been created for this project with the label of v1.0 and release-v1.0 respectively. This is to mark the original project as submitted during the 16-Week High-Performance Full Stack Skills Bootcamp at Code Institute.
 
+## Project Deployment Links
+
+The website location has not been changed from the original project. It is included here for user convenience.
+ https://matchmaster-project-18732b4416f9.herokuapp.com/
+
 ## Changes made
 
 - Added new maintenance documentation in README.md to explain future updates. The original document was moved to README-MatchMaster.md.

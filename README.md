@@ -15,7 +15,7 @@ A tag and a branch have been created for this project with the label of v1.0 and
 ## Project Deployment Links
 
 The website location has not been changed from the original project. It is included here for user convenience.
- https://matchmaster-project-18732b4416f9.herokuapp.com/
+ [https://matchmaster-project-18732b4416f9.herokuapp.com/](https://matchmaster-project-18732b4416f9.herokuapp.com/)
 
 ## Changes made
 

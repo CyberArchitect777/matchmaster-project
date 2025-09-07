@@ -22,3 +22,4 @@ The website location has not been changed from the original project. It is inclu
 - Added new maintenance documentation in README.md to explain future updates. The original document was moved to README-MatchMaster.md.
 - Added files to .gitignore to ignore more local workspace content. This is to facilitate development on Docker as well as the original GitPod.
 - Added Dockerfile and changed access settings to allow local Docker development
+- Add .python-version file as specified by Heroku from mid-2025.

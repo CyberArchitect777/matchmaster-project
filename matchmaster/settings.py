@@ -42,7 +42,7 @@ if os.environ.get("DJANGO_DEBUG", "False") == "True":
 	ALLOWED_HOSTS = [ "localhost", ]
 	CSRF_TRUSTED_ORIGINS = [ "http://localhost" ]
 else:
-	ALLOWED_HOSTS = [ "*.azurewebsites.net", ".herokuapp.com" ]
+	ALLOWED_HOSTS = [ ".azurewebsites.net", ".herokuapp.com" ]
 	CSRF_TRUSTED_ORIGINS = [ "https://*.azurewebsites.net", "https://*.herokuapp.com" ]
 
 # Application definition

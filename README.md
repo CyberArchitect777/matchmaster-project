@@ -14,11 +14,20 @@ A tag and a branch have been created for this project with the label of v1.0 and
 
 ## Project Deployment Links
 
-The website location has not been changed from the original project. It is included here for user convenience:
+The links for this project can be found below:
 
- [https://matchmaster-project-18732b4416f9.herokuapp.com/](https://matchmaster-project-18732b4416f9.herokuapp.com/)
+* Main Heroku website deployment: (https://matchmaster-project-18732b4416f9.herokuapp.com/)
+* Additional Azure website deployment: (https://match-master.azurewebsites.net)
+* GitHub repository: (https://github.com/CyberArchitect777/matchmaster-project)
 
 ## Changes made
+
+2026 developments
+
+- The project now uses an SQLite database instead of the original PostgreSQL. This change was made because access to the original Code Institute database is expected to be withdrawn. SQLite is sufficient for development and portfolio demonstration purposes. However, the database is not persistent on the server, so it may periodically reset to the default demo data when the web server restarts.
+- An additional Azure web deployment has been created and the hyperlink to it can be found further down. Heroku will remain the primary live site for now though.
+
+Previous developments
 
 - Added new maintenance documentation in README.md to explain future updates. The original document was moved to README-MatchMaster.md.
 - Added files to .gitignore to ignore more local workspace content. This is to facilitate development on Docker as well as the original GitPod.

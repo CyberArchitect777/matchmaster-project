@@ -1,0 +1,520 @@
+
+/* */
+/* All pages */
+/* */
+
+html, body {
+    height: 100%;
+}
+
+/* Use CSS Grid to split the page up into one small header and footer 
+separated by one large main section */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.modal-content {
+    background-color: #293B15BB;
+    color: white;
+}
+
+button.btn {
+    border-radius: 20px;
+    width: 75px;
+}
+
+button.btn.btn-secondary {
+    border-radius: 20px;
+}
+
+/* */
+/* General styling */
+/* */
+
+/* Creates a standardised black box which is used a lot in the project */
+.blackbox {
+    color: lightgrey;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #000000BB;
+    margin: 30px auto 0 auto;
+}
+
+.greenbox {
+    background-color: #293B15;
+    text-align: center;
+    color: lightgrey;
+}
+
+/* Sets other size attributes for blackbox text */
+h1.blackbox {
+    font-size: 300%;
+    padding: 25px;
+    max-width: 600px;
+}
+
+h2.blackbox {
+    font-size: 200%;
+    padding: 15px;
+    max-width: 400px;
+}
+
+/* Provides styling for the common red buttons */
+.redbutton {
+    margin: 0 auto 0 auto;
+    max-width: 150px;
+    color: lightgrey;
+    background-color: darkred;
+    padding: 10px 15px 10px 15px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.redbutton a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.redbutton:hover {
+    background-color: red;
+}
+
+/* Styles a smaller red button used notably on the instruction page */
+.small-button {
+    background-color: darkred;
+    color: white;
+    margin: 5px;
+    width: 80px;
+    padding: 5px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.small-button:hover {
+    background-color: red;
+}
+
+/* Used for styling some of the forms on the site */
+.formholder {
+    background-color: #000000BB;
+    color: lightgrey;
+    max-width: 600px;
+    margin: 50px auto 0px;
+    padding-top: 24px;
+}
+
+/* Makes the font size slightly smaller on some of the very small
+screen sizes. As these are certain to be phones, people will be looking 
+at them closer anyway */
+.userform {
+    font-size: 90%;
+}
+
+.userform p {
+    display: flex;
+    justify-content: center;
+}
+
+.userform p label {
+    margin-right: 20px;
+}
+
+/* */
+/* Base.html styles */
+/* */
+
+/* Navigation bar */
+
+nav {
+    background-color: #293B15;
+    color: lightgrey;
+}
+
+a.nav-link, a.navbar-brand {
+    color: lightgrey;
+}
+
+.navbar-nav {
+    text-align: right;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+  
+.navbar-toggler-icon {
+    /* Provides an icon for the navbar on mobile view */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Styles the nav bar based on the user's current location on the page and 
+if they are hovering over nav links */
+.navbar-brand:hover, .navbar-brand:focus, .navbar-brand:focus-visible {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.nav-link:hover, .nav-link:focus, .nav-link:focus-visible {
+    text-decoration: underline;
+    color: inherit;
+}
+
+.navbar-currentpage {
+    font-weight: bold;
+}
+
+/* Main section */
+
+main {
+    background: #172408 url("https://res.cloudinary.com/dp1ehadna/image/upload/v1723492009/background-compressed_iiukhj.jpg") no-repeat center/cover fixed;
+}
+
+/* Footer section */
+
+footer {
+    background-color: #293B15;
+    color: lightgrey;
+}
+
+/* */
+/* Index.html styling */
+/* */
+
+/* The default size for the main page card icon */
+img {
+    width: 125px;
+}
+
+/* */
+/* Login page styling */
+/* */
+
+#id_password {
+    margin-left: 5px;
+}
+
+.formaction {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.formaction a {
+    color: lightgrey;
+}
+
+#register-link {
+    text-decoration: underline;
+}
+
+/* */
+/* Register page styling */
+/* */
+
+/* Move the input entries to the right to maximise room on small devices */
+.userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
+    margin-left: auto;
+}
+
+.userform #id_password1 {
+    margin-bottom: 20px;
+}
+
+/* */
+/* Change password page styling */
+/* */
+
+#password-change-section {
+    max-width: 600px;
+}
+
+#password-change-section ul {
+    text-align: start;
+    margin: 30px 0;
+}
+
+#password-change-section label {
+    text-align: center;
+}
+
+#password-change-section input {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* */
+/* Profile page styling */
+/* */ 
+
+/* Change username form */
+
+/* Lines up boxes to improve the user-interface
+Django forms are hard to style at times as the user has less control, 
+particularly having an impact on small devices */
+
+#id_current_password {
+    margin-left: 35px;
+}
+
+#id_username_one {
+    margin-left: 52px;
+}
+
+/* Change email form */
+
+#id_current_account_password {
+    margin-left: 33px;
+}
+
+#id_email_one {
+    margin-left: 82px;
+}
+
+#id_email_two {
+    margin-left: 30px;
+}
+
+/* */
+/* Game page styling */
+/* */
+
+/* Maximising the screen space available 
+and centering all elements on the page */
+#gamepage {
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Using CSS grid to set up the page */
+.gamepanel-class {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%;
+}
+
+#scoreboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #293B15;
+    color: lightgrey;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+#scoreboard p {
+    padding: 0 20px;
+    margin: 0;
+}
+
+.scorepanel-class {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 20px;
+    margin: 0px;
+}
+
+.gamebox {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    object-fit: cover;
+}
+
+/* Sets the display to none as needed with a .hide tag. Allows
+the game screen and the scoreboard screen to be alternated on
+the memorygame app */
+
+.hide {
+    display: none;
+}
+
+/* */
+/* Instruction page styling */
+/* */
+
+.accordion-item { /* Styling entry */
+    background-color: #00000040;
+    color: lightgrey;
+}
+
+.accordion-button { /* Styling inactive menu header */
+    background-color: #00000040;
+    color: lightgrey;
+    display: block;
+    text-align: center;
+}
+
+.accordion-button:not(.collapsed) { /* Styling active menu header */
+    background-color: #00000040;
+    color: lightgrey;
+}
+
+.crispy-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.admin-change {
+    margin: 0 auto;
+    border: 2px solid white;
+    max-width: 496px;
+}
+
+/* */
+/* Media queries */
+/* */
+
+/* Styling for slightly bigger screen sizes than the minimum */
+@media only screen and (min-width: 376px) {
+
+    /* Userform font restored to 100% size */
+    .userform {
+        font-size: 100%;
+    }
+
+    /* Improving form design */
+    .userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
+        margin-right: 10px;
+    }
+
+    .userform p label {
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (min-width: 460px) {
+
+    .userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
+        margin-right: 40px;
+        display: inline-block;
+    }
+
+    .userform p label {
+        margin-left: 40px;
+    }
+}
+
+/* Styling on bigger screens now */
+@media only screen and (min-width: 770px) {
+    .userform #id_username, .userform #id_password1, .userform #id_email, .userform #id_password2 {
+        margin-right: 90px;
+    }
+
+    .userform p label {
+        margin-left: 90px;
+    }
+
+    #password-change-section ul {
+        text-align: center;
+        list-style: none;
+    }
+
+    #password-change-section #id_oldpassword {
+        margin-left: 55px;
+    }
+
+    #password-change-section #id_password1 {
+        margin-left: 75px;
+    }
+
+    #password-change-section #id_password2 {
+        margin-left: 30px;
+    }
+    
+    #password-change-section input {
+        display: inline-block;
+        text-align: center;
+    }
+}
+
+/* Applying earlier project styling on small screens */
+@media only screen and (max-width: 720px) {
+    
+    /* General styling */
+
+    h1.blackbox {
+        font-size: 200%;
+        margin-top: 10px;
+    }
+    
+    h2.blackbox {
+        font-size: 150%;
+    }
+
+    .formholder {
+        margin-top: 20px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .userform p label {
+        margin-right: 15px;
+    }
+
+    .redbutton {
+        max-width: 125px;
+    }
+
+    /* Index.html styling */
+
+    /* Decreasing main logo image on home screen to a 
+    smaller size for smaller screens */
+    img {
+        width: 100px;
+    }
+
+    /* Register page styling */
+
+    /* Moving all input fields to the right on small screens */
+    #id_username, #id_password1, #id_email {
+        margin-left: auto;
+    }
+    
+    #id_password1 {
+        margin-bottom: 20px;
+    }
+
+    /* Profile page styling */
+
+    form.userform input[type="submit"] {
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    /* Change username form */
+
+    #id_current_password, #id_username_one, #id_username_two {
+        margin-left: auto;
+    }
+
+    /* Change email form */
+
+    #id_current_account_password, #id_email_one, #id_email_two {
+        margin-left: auto;
+    }
+
+    /* Instruction page styling */
+
+    .admin-change {
+        margin: 0 10px;
+        padding: 20px 5px;
+    }
+}

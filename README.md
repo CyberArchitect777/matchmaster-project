@@ -17,7 +17,7 @@ A tag and a branch have been created for this project with the label of v1.0 and
 The links for this project can be found below:
 
 * Main Heroku website deployment: (https://matchmaster-project-18732b4416f9.herokuapp.com/)
-* Additional Azure website deployment: (https://match-master.azurewebsites.net)
+* Additional Azure website deployment: (https://matchmaster.azurewebsites.net)
 * GitHub repository: (https://github.com/CyberArchitect777/matchmaster-project)
 
 ## Changes made
